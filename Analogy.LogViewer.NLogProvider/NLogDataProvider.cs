@@ -28,7 +28,7 @@ namespace Analogy.LogViewer.NLogProvider
 
         public void InitDataProvider()
         {
-            nLogFileParser=new NLogFileLoader(LogParserSettings);
+         
             if (File.Exists(NLogFileSetting))
             {
                 try
@@ -49,7 +49,7 @@ namespace Analogy.LogViewer.NLogProvider
                 LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog" };
 
             }
-
+            nLogFileParser = new NLogFileLoader(LogParserSettings);
         }
 
         public async Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
