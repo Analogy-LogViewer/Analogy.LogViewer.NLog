@@ -1,6 +1,6 @@
 ﻿namespace Analogy.LogViewer.NLogProvider
 {
-    partial class UserControl1
+    partial class NLogSettings
     {
         /// <summary>
         /// Required designer variable.

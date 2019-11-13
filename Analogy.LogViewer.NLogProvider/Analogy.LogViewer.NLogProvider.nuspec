@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Analogy.LogViewer.NLogProvider</id>
+    <version>1.0.0</version>
+    <title>Analogy NLog Data provider</title>
+    <authors>Lior Banai</authors>
+    <owners>Lior Banai</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</projectUrl>
+    <!-- <icon>icon.png</icon> -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NLog log file parser for Analogy Log Viewer</description>
+    <releaseNotes>NLog log file parser for Analogy Log Viewer</releaseNotes>
+    <copyright>Copyright 2019 Lior Banai</copyright>
+    <tags></tags>
+	<dependencies>
+    <group targetFramework="net472">    
+		<dependency id="Analogy.LogViewer.Interfaces" version="2.1.4" />
+        <dependency id="Newtonsoft.Json" version="12.0.2" />
+		<dependency id="Analogy.DataProviders.Extensions" version="1.0.0.2"/>
+    </group>
+</dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Analogy.Implementation.NLogProvider.dll" target="lib\net472\Analogy.Implementation.NLogProvider.dll" />
+	<!-- <file src="icon.png" target="" /> -->
+</files>
+</package>

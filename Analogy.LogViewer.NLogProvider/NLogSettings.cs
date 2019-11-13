@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Analogy.LogViewer.NLogProvider
 {
-    public partial class UserControl1: UserControl
+    public partial class NLogSettings: UserControl
     {
-        public UserControl1()
+        public NLogSettings()
         {
             InitializeComponent();
         }
