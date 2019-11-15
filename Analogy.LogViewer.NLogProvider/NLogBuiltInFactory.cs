@@ -59,7 +59,7 @@ namespace Analogy.LogViewer.NLogProvider
         }
     }
 
-    public class AnalogyNLogSettings : IAnalogyDataProviderSetting
+    public class AnalogyNLogSettings : IAnalogyDataProviderSettings
     {
        
         public Guid ID { get; } = new Guid("8D24EC70-60C0-4823-BE9C-F4A59303FFB3");
@@ -67,5 +67,6 @@ namespace Analogy.LogViewer.NLogProvider
         public string Title { get; } = "NLog Settings";
         public UserControl DataProviderSettings { get; } = new NLogSettings();
         public Image Icon { get; } = Resources.nlog;
+        public Task SaveSettingsAsync { get; set; }
     }
 }
