@@ -21,35 +21,14 @@ namespace Analogy.LogViewer.NLogProvider
         public string FileSaveDialogFilters { get; } = string.Empty;
         public IEnumerable<string> SupportFormats { get; } = new[] { "*.nlog", "*.log" };
         public string InitialFolderFullPath { get; } = Environment.CurrentDirectory;
-
-        private ILogParserSettings LogParserSettings { get; set; }
-        private NLogFileLoader nLogFileParser { get; set; }
-        private string NLogFileSetting { get; } = "AnalogyNLogSettings.json";
+        public NLogFileLoader nLogFileParser { get; set; }
+      
+      
 
         public void InitDataProvider()
         {
-         
-            if (File.Exists(NLogFileSetting))
-            {
-                try
-                {
-                    LogParserSettings = JsonConvert.DeserializeObject<LogParserSettings>(NLogFileSetting);
-                }
-                catch (Exception)
-                {
-                    LogParserSettings = new LogParserSettings();
-                    LogParserSettings.Splitter = "|";
-                    LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog" };
-                }
-            }
-            else
-            {
-                LogParserSettings = new LogParserSettings();
-                LogParserSettings.Splitter = "|";
-                LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog" };
 
-            }
-            nLogFileParser = new NLogFileLoader(LogParserSettings);
+            nLogFileParser = new NLogFileLoader(UserSettingsManager.UserSettings.LogParserSettings);
         }
 
         public async Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
@@ -68,7 +47,7 @@ namespace Analogy.LogViewer.NLogProvider
             throw new NotSupportedException("Saving is not supported for nlog");
         }
 
-        public bool CanOpenFile(string fileName) => LogParserSettings.CanOpenFile(fileName);
+        public bool CanOpenFile(string fileName) => UserSettingsManager.UserSettings.LogParserSettings.CanOpenFile(fileName);
 
         public bool CanOpenAllFiles(IEnumerable<string> fileNames) => fileNames.All(CanOpenFile);
 
