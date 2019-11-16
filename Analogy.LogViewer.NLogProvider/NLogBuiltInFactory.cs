@@ -70,6 +70,7 @@ namespace Analogy.LogViewer.NLogProvider
 
         public Task SaveSettingsAsync()
         {
+            UserSettingsManager.UserSettings.Save();
             return Task.CompletedTask;
         }
 

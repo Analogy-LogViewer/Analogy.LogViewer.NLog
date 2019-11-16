@@ -44,5 +44,20 @@ namespace Analogy.LogViewer.NLogProvider
             }
           
         }
+
+        public void Save()
+        {
+            try
+            {
+                var data = JsonConvert.SerializeObject(LogParserSettings);
+                File.WriteAllText(NLogFileSetting,data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            
+
+        }
     }
 }
