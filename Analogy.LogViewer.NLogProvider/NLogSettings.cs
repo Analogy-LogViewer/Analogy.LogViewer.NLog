@@ -41,7 +41,7 @@ namespace Analogy.LogViewer.NLogProvider
                 SaveMapping();
                 try
                 {
-                    File.WriteAllText(LogParsersSettings.AsJson(), saveFileDialog.FileName);
+                    File.WriteAllText(saveFileDialog.FileName,LogParsersSettings.AsJson());
                     MessageBox.Show("File Saved", @"Export settings", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
 
