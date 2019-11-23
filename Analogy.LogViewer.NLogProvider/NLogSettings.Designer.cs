@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.analogyColumnsMatcherUC1 = new Analogy.LogViewer.NLogProvider.AnalogyColumnsMatcherUC();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExportSettings = new System.Windows.Forms.Button();
             this.lblLayout = new System.Windows.Forms.Label();
@@ -39,17 +38,11 @@
             this.txtNLogExtension = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnImport = new System.Windows.Forms.Button();
+            this.analogyColumnsMatcherUC1 = new Analogy.LogViewer.NLogProvider.AnalogyColumnsMatcherUC();
+            this.txtbNLogDirectory = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnOpenFolder = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // analogyColumnsMatcherUC1
-            // 
-            this.analogyColumnsMatcherUC1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.analogyColumnsMatcherUC1.Location = new System.Drawing.Point(0, 94);
-            this.analogyColumnsMatcherUC1.Name = "analogyColumnsMatcherUC1";
-            this.analogyColumnsMatcherUC1.Size = new System.Drawing.Size(709, 352);
-            this.analogyColumnsMatcherUC1.TabIndex = 0;
             // 
             // btnSave
             // 
@@ -125,7 +118,7 @@
             // 
             this.txtNLogExtension.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNLogExtension.Location = new System.Drawing.Point(172, 66);
+            this.txtNLogExtension.Location = new System.Drawing.Point(172, 90);
             this.txtNLogExtension.Name = "txtNLogExtension";
             this.txtNLogExtension.Size = new System.Drawing.Size(416, 23);
             this.txtNLogExtension.TabIndex = 9;
@@ -134,7 +127,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 68);
+            this.label2.Location = new System.Drawing.Point(3, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 17);
             this.label2.TabIndex = 8;
@@ -151,10 +144,52 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // analogyColumnsMatcherUC1
+            // 
+            this.analogyColumnsMatcherUC1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.analogyColumnsMatcherUC1.Location = new System.Drawing.Point(0, 120);
+            this.analogyColumnsMatcherUC1.Name = "analogyColumnsMatcherUC1";
+            this.analogyColumnsMatcherUC1.Size = new System.Drawing.Size(709, 328);
+            this.analogyColumnsMatcherUC1.TabIndex = 0;
+            // 
+            // txtbNLogDirectory
+            // 
+            this.txtbNLogDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbNLogDirectory.Location = new System.Drawing.Point(172, 63);
+            this.txtbNLogDirectory.Name = "txtbNLogDirectory";
+            this.txtbNLogDirectory.Size = new System.Drawing.Size(381, 23);
+            this.txtbNLogDirectory.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 17);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Logs Location";
+            // 
+            // btnOpenFolder
+            // 
+            this.btnOpenFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOpenFolder.Location = new System.Drawing.Point(559, 61);
+            this.btnOpenFolder.Name = "btnOpenFolder";
+            this.btnOpenFolder.Size = new System.Drawing.Size(28, 25);
+            this.btnOpenFolder.TabIndex = 13;
+            this.btnOpenFolder.Text = "..";
+            this.btnOpenFolder.UseVisualStyleBackColor = true;
+            this.btnOpenFolder.Click += new System.EventHandler(this.btnOpenFolder_Click);
+            // 
             // NLogSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnOpenFolder);
+            this.Controls.Add(this.txtbNLogDirectory);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.txtNLogExtension);
             this.Controls.Add(this.label2);
@@ -187,5 +222,8 @@
         private System.Windows.Forms.TextBox txtNLogExtension;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.TextBox txtbNLogDirectory;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnOpenFolder;
     }
 }

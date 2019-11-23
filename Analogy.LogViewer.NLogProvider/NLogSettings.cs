@@ -28,6 +28,7 @@ namespace Analogy.LogViewer.NLogProvider
         {
             LogParsersSettings.Configure(txtNLogLayout.Text, txtNLogSeperator.Text,
                 new List<string> { txtNLogExtension.Text }, analogyColumnsMatcherUC1.Mapping);
+            LogParsersSettings.Directory = txtbNLogDirectory.Text;
         }
 
         private void btnExportSettings_Click(object sender, EventArgs e)
@@ -111,6 +112,20 @@ namespace Analogy.LogViewer.NLogProvider
 
                 analogyColumnsMatcherUC1.LoadMapping(nLogParserSettings);
                 CheckNLogLayout();
+            }
+        }
+
+        private void btnOpenFolder_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    txtbNLogDirectory.Text = fbd.SelectedPath;
+
+                }
             }
         }
     }
