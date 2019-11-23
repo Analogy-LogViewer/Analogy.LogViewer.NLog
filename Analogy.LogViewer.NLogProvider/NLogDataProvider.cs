@@ -20,11 +20,17 @@ namespace Analogy.LogViewer.NLogProvider
         public string FileOpenDialogFilters { get; } = "Nlog files|*.log;*.nlog|NLog file (*.log)|*.log|NLog File (*.nlog)|*.nlog";
         public string FileSaveDialogFilters { get; } = string.Empty;
         public IEnumerable<string> SupportFormats { get; } = new[] { "*.nlog", "*.log" };
-        public string InitialFolderFullPath { get; } = Environment.CurrentDirectory;
-        public NLogFileLoader nLogFileParser { get; set; }
-      
-      
 
+        public string InitialFolderFullPath => Directory.Exists(UserSettings?.Directory)
+            ? UserSettings.Directory
+            : Environment.CurrentDirectory;
+        public NLogFileLoader nLogFileParser { get; set; }
+
+       private  ILogParserSettings UserSettings { get; set; }
+        public NLogDataProvider(ILogParserSettings userSettings)
+        {
+            UserSettings = userSettings;
+        }
         public void InitDataProvider()
         {
 
