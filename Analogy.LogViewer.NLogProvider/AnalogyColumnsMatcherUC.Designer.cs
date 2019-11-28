@@ -68,8 +68,8 @@ namespace Analogy.LogViewer.NLogProvider
             this.spltColumns.Panel2.Controls.Add(this.lstBoxItems);
             this.spltColumns.Panel2.Controls.Add(this.labelControl10);
             this.spltColumns.Panel2.Text = "Panel2";
-            this.spltColumns.Size = new System.Drawing.Size(688, 483);
-            this.spltColumns.SplitterDistance = 191;
+            this.spltColumns.Size = new System.Drawing.Size(602, 483);
+            this.spltColumns.SplitterDistance = 167;
             this.spltColumns.TabIndex = 10;
             // 
             // lstBAnalogyColumns
@@ -98,19 +98,19 @@ namespace Analogy.LogViewer.NLogProvider
             "__ignore__",
             "__ignore__",
             "__ignore__"});
-            this.lstBAnalogyColumns.Location = new System.Drawing.Point(54, 16);
+            this.lstBAnalogyColumns.Location = new System.Drawing.Point(47, 16);
             this.lstBAnalogyColumns.Name = "lstBAnalogyColumns";
-            this.lstBAnalogyColumns.Size = new System.Drawing.Size(137, 467);
+            this.lstBAnalogyColumns.Size = new System.Drawing.Size(120, 467);
             this.lstBAnalogyColumns.TabIndex = 0;
             this.lstBAnalogyColumns.SelectedIndexChanged += new System.EventHandler(this.lstBAnalogyColumns_SelectedIndexChanged);
             // 
             // labelControl9
             // 
             this.labelControl9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelControl9.Location = new System.Drawing.Point(54, 0);
+            this.labelControl9.Location = new System.Drawing.Point(47, 0);
             this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(137, 16);
+            this.labelControl9.Size = new System.Drawing.Size(120, 16);
             this.labelControl9.TabIndex = 7;
             this.labelControl9.Text = "Log message Columns";
             // 
@@ -130,7 +130,7 @@ namespace Analogy.LogViewer.NLogProvider
             // 
             this.splitContainerButtons.Panel2.Controls.Add(this.BtnMoveDown);
             this.splitContainerButtons.Panel2.Text = "Panel2";
-            this.splitContainerButtons.Size = new System.Drawing.Size(54, 483);
+            this.splitContainerButtons.Size = new System.Drawing.Size(47, 483);
             this.splitContainerButtons.SplitterDistance = 238;
             this.splitContainerButtons.TabIndex = 1;
             // 
@@ -142,7 +142,7 @@ namespace Analogy.LogViewer.NLogProvider
             this.sBtnMoveUp.Location = new System.Drawing.Point(0, 0);
             this.sBtnMoveUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sBtnMoveUp.Name = "sBtnMoveUp";
-            this.sBtnMoveUp.Size = new System.Drawing.Size(54, 238);
+            this.sBtnMoveUp.Size = new System.Drawing.Size(47, 238);
             this.sBtnMoveUp.TabIndex = 2;
             this.sBtnMoveUp.Text = "Up";
             this.sBtnMoveUp.Click += new System.EventHandler(this.BtnMoveUp_Click);
@@ -155,7 +155,7 @@ namespace Analogy.LogViewer.NLogProvider
             this.BtnMoveDown.Location = new System.Drawing.Point(0, 0);
             this.BtnMoveDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnMoveDown.Name = "BtnMoveDown";
-            this.BtnMoveDown.Size = new System.Drawing.Size(54, 241);
+            this.BtnMoveDown.Size = new System.Drawing.Size(47, 241);
             this.BtnMoveDown.TabIndex = 3;
             this.BtnMoveDown.Text = "Down";
             this.BtnMoveDown.Click += new System.EventHandler(this.BtnMoveDown_Click);
@@ -166,7 +166,7 @@ namespace Analogy.LogViewer.NLogProvider
             this.lstBoxItems.ItemHeight = 16;
             this.lstBoxItems.Location = new System.Drawing.Point(0, 16);
             this.lstBoxItems.Name = "lstBoxItems";
-            this.lstBoxItems.Size = new System.Drawing.Size(493, 467);
+            this.lstBoxItems.Size = new System.Drawing.Size(431, 467);
             this.lstBoxItems.TabIndex = 2;
             // 
             // labelControl10
@@ -175,17 +175,18 @@ namespace Analogy.LogViewer.NLogProvider
             this.labelControl10.Location = new System.Drawing.Point(0, 0);
             this.labelControl10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(493, 16);
+            this.labelControl10.Size = new System.Drawing.Size(431, 16);
             this.labelControl10.TabIndex = 8;
             this.labelControl10.Text = "Parsed columns.";
             // 
             // AnalogyColumnsMatcherUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.spltColumns);
+            this.Font = new System.Drawing.Font("Tahoma", 7.8F);
             this.Name = "AnalogyColumnsMatcherUC";
-            this.Size = new System.Drawing.Size(688, 483);
+            this.Size = new System.Drawing.Size(602, 483);
             this.spltColumns.Panel1.ResumeLayout(false);
             this.spltColumns.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spltColumns)).EndInit();

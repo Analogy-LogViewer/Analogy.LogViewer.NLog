@@ -47,9 +47,9 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(592, 452);
+            this.btnSave.Location = new System.Drawing.Point(592, 463);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(114, 51);
+            this.btnSave.Size = new System.Drawing.Size(114, 40);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save Settings";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@
             // btnExportSettings
             // 
             this.btnExportSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExportSettings.Location = new System.Drawing.Point(473, 452);
+            this.btnExportSettings.Location = new System.Drawing.Point(473, 463);
             this.btnExportSettings.Name = "btnExportSettings";
-            this.btnExportSettings.Size = new System.Drawing.Size(114, 51);
+            this.btnExportSettings.Size = new System.Drawing.Size(114, 40);
             this.btnExportSettings.TabIndex = 2;
             this.btnExportSettings.Text = "Export Settings";
             this.btnExportSettings.UseVisualStyleBackColor = true;
@@ -151,7 +151,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.analogyColumnsMatcherUC1.Location = new System.Drawing.Point(0, 120);
             this.analogyColumnsMatcherUC1.Name = "analogyColumnsMatcherUC1";
-            this.analogyColumnsMatcherUC1.Size = new System.Drawing.Size(709, 328);
+            this.analogyColumnsMatcherUC1.Size = new System.Drawing.Size(709, 346);
             this.analogyColumnsMatcherUC1.TabIndex = 0;
             // 
             // txtbNLogDirectory
