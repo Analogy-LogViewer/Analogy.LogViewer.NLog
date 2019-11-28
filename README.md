@@ -1,2 +1,4 @@
-# Analogy.LogViewer.NLogProvider      ![NuGet](Assets/nuget.svg)](https://www.nuget.org/packages/Analogy.LogViewer.NLogProvider)        <img src="./Assets/AnalogyNlog.jpg" align="right" width="155px" height="155px">
+<img src="./Assets/AnalogyNlog.jpg" align="right" width="155px" height="155px">
+# Analogy.LogViewer.NLogProvider      ![NuGet](Assets/nuget.svg)](https://www.nuget.org/packages/Analogy.LogViewer.NLogProvider) 
+
 Data provider for Parsing offline log file created by NLog
