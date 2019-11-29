@@ -7,7 +7,7 @@
     <ProjectGuid>{62285313-621E-4B80-84F0-CFEE0B257D7A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Analogy.LogViewer.NLogProvider</RootNamespace>
-    <AssemblyName>Analogy.Implementation.NLogProvider</AssemblyName>
+    <AssemblyName>Analogy.LogViewer.NLogProvider</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

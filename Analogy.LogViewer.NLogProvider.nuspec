@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Analogy.LogViewer.NLogProvider</id>
+    <version>1.0.0.7</version>
+    <title>Analogy NLog Data provider</title>
+    <authors>Lior Banai</authors>
+    <owners>Lior Banai</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</projectUrl>
+    <icon>AnalogyNlog.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NLog log file parser for Analogy Log Viewer</description>
+    <releaseNotes>Add default log location settings</releaseNotes>
+    <copyright>Copyright 2019 Lior Banai</copyright>
+    <tags></tags>
+    <dependencies>
+      <group targetFramework="net472">
+        <dependency id="Analogy.LogViewer.Interfaces" version="2.1.5" />
+        <dependency id="Newtonsoft.Json" version="12.0.3" />
+        <dependency id="Analogy.DataProviders.Extensions" version="1.0.0.7"/>
+      </group>
+	        <group targetFramework="netcoreapp3.0">
+        <dependency id="Analogy.LogViewer.Interfaces" version="2.1.5.2" />
+        <dependency id="Newtonsoft.Json" version="12.0.3" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Analogy.LogViewer.NLogProvider\bin\Release\Analogy.LogViewer.NLogProvider.dll" target="lib\net472\Analogy.LogViewer.NLogProvider.dll" />
+	<file src="Analogy.LogViewer.NLogProvider.Core\bin\Release\netcoreapp3.0\Analogy.LogViewer.NLogProvider.dll" target="lib\netcoreapp3.0\Analogy.LogViewer.NLogProvider.dll" />
+	<file src="Analogy.LogViewer.NLogProvider.Core\bin\Release\netcoreapp3.0\Analogy.LogViewer.NLogProvider.deps.json" target="lib\netcoreapp3.0\Analogy.LogViewer.NLogProvider.deps.json" />
+    <file src="AnalogyNlog.png" target="" />
+  </files>
+</package>
