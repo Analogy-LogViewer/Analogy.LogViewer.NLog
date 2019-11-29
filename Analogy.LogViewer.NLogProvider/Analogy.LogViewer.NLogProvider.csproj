@@ -73,10 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Analogy.DataProviders.Extensions">
-      <Version>1.0.0.7</Version>
+      <Version>1.0.0.8</Version>
     </PackageReference>
     <PackageReference Include="Analogy.LogViewer.Interfaces">
-      <Version>2.1.5.1</Version>
+      <Version>2.1.5.2</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
@@ -95,7 +95,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Analogy.LogViewer.NLogProvider.nuspec" />
     <None Include="Resources\nlog.png" />
   </ItemGroup>
   <ItemGroup>
