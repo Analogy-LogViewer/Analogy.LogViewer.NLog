@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Analogy.DataProviders.Extensions;
+using Analogy.Interfaces;
 
 namespace Analogy.LogViewer.NLogProvider
 {

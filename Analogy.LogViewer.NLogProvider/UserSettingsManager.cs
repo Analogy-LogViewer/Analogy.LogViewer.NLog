@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Analogy.DataProviders.Extensions;
+using Analogy.Interfaces;
 using Newtonsoft.Json;
 
 namespace Analogy.LogViewer.NLogProvider

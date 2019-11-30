@@ -31,12 +31,17 @@ namespace Analogy.LogViewer.NLogProvider
         {
             UserSettings = userSettings;
         }
-        public void InitDataProvider()
+    
+        public Task InitializeDataProviderAsync()
         {
-
             nLogFileParser = new NLogFileLoader(UserSettingsManager.UserSettings.LogParserSettings);
+            return Task.CompletedTask;
         }
 
+        public void MessageOpened(AnalogyLogMessage message)
+        {
+            //nop
+        }
         public async Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
         {
             if (CanOpenFile(fileName))

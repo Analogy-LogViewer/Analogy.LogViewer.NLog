@@ -43,7 +43,6 @@ namespace Analogy.LogViewer.NLogProvider
             var builtInItems = new List<IAnalogyDataProvider>();
             var adpnlog = new NLogDataProvider(UserSettingsManager.UserSettings.LogParserSettings);
             builtInItems.Add(adpnlog);
-            adpnlog.InitDataProvider();
             Items = builtInItems;
         }
     }

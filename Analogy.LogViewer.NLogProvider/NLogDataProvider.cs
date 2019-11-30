@@ -14,6 +14,7 @@ namespace Analogy.LogViewer.NLogProvider
     public class NLogDataProvider : IAnalogyOfflineDataProvider
     {
         public string OptionalTitle { get; } = "Analogy Built-In NLog Parser";
+ 
         public Guid ID { get; } = new Guid("4C002803-607F-4385-9C19-949FF1F29877");
 
         public bool CanSaveToLogFile { get; } = false;
@@ -31,12 +32,16 @@ namespace Analogy.LogViewer.NLogProvider
         {
             UserSettings = userSettings;
         }
-        public void InitDataProvider()
+        public Task InitializeDataProviderAsync()
         {
-
             nLogFileParser = new NLogFileLoader(UserSettingsManager.UserSettings.LogParserSettings);
+            return Task.CompletedTask;
         }
 
+        public void MessageOpened(AnalogyLogMessage message)
+        {
+            //nop
+        }
         public async Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
         {
             if (CanOpenFile(fileName))
