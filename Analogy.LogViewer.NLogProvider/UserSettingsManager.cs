@@ -27,9 +27,10 @@ namespace Analogy.LogViewer.NLogProvider
             {
                 try
                 {
-                    LogParserSettings = JsonConvert.DeserializeObject<LogParserSettings>(NLogFileSetting);
+                    string data = File.ReadAllText(NLogFileSetting);
+                    LogParserSettings = JsonConvert.DeserializeObject<LogParserSettings>(data);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     LogParserSettings = new LogParserSettings();
                     LogParserSettings.Splitter = "|";
@@ -50,8 +51,7 @@ namespace Analogy.LogViewer.NLogProvider
         {
             try
             {
-                var data = JsonConvert.SerializeObject(LogParserSettings);
-                File.WriteAllText(NLogFileSetting,data);
+                File.WriteAllText(NLogFileSetting, LogParserSettings.AsJson());
             }
             catch (Exception e)
             {
