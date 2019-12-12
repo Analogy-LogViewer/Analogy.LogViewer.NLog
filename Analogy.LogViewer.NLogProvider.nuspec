@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Analogy.LogViewer.NLogProvider</id>
-    <version>1.0.0.8</version>
+    <version>1.0.0.9</version>
     <title>Analogy NLog Data provider</title>
     <authors>Lior Banai</authors>
     <owners>Lior Banai</owners>
@@ -12,7 +12,7 @@
     <icon>AnalogyNlog.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>NLog log file parser for Analogy Log Viewer</description>
-    <releaseNotes>Add default log location settings</releaseNotes>
+    <releaseNotes>Fix loading of user settings</releaseNotes>
     <copyright>Copyright 2019 Lior Banai</copyright>
     <tags></tags>
     <dependencies>

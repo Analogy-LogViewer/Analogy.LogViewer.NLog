@@ -27,7 +27,8 @@ namespace Analogy.LogViewer.NLogProvider
             {
                 try
                 {
-                    LogParserSettings = JsonConvert.DeserializeObject<LogParserSettings>(NLogFileSetting);
+                    string data = File.ReadAllText(NLogFileSetting);
+                    LogParserSettings = JsonConvert.DeserializeObject<LogParserSettings>(data);
                 }
                 catch (Exception)
                 {
@@ -43,21 +44,20 @@ namespace Analogy.LogViewer.NLogProvider
                 LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog" };
 
             }
-          
+
         }
 
         public void Save()
         {
             try
             {
-                var data = JsonConvert.SerializeObject(LogParserSettings);
-                File.WriteAllText(NLogFileSetting,data);
+                File.WriteAllText(NLogFileSetting, LogParserSettings.AsJson());
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
-            
+
 
         }
     }
