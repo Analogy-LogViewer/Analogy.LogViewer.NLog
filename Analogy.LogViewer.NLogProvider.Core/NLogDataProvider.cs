@@ -32,7 +32,7 @@ namespace Analogy.LogViewer.NLogProvider
             UserSettings = userSettings;
         }
     
-        public Task InitializeDataProviderAsync()
+        public Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
             nLogFileParser = new NLogFileLoader(UserSettingsManager.UserSettings.LogParserSettings);
             return Task.CompletedTask;
