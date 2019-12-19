@@ -52,6 +52,7 @@
       <DependentUpon>AnalogyColumnsMatcherUC.cs</DependentUpon>
     </Compile>
     <Compile Include="ChangeLog.cs" />
+    <Compile Include="LogManager.cs" />
     <Compile Include="NLogBuiltInFactory.cs" />
     <Compile Include="NLogDataProvider.cs" />
     <Compile Include="NLogFileLoader.cs" />

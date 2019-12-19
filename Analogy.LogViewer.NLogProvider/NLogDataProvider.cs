@@ -14,7 +14,7 @@ namespace Analogy.LogViewer.NLogProvider
     public class NLogDataProvider : IAnalogyOfflineDataProvider
     {
         public string OptionalTitle { get; } = "Analogy Built-In NLog Parser";
- 
+
         public Guid ID { get; } = new Guid("4C002803-607F-4385-9C19-949FF1F29877");
 
         public bool CanSaveToLogFile { get; } = false;
@@ -27,13 +27,14 @@ namespace Analogy.LogViewer.NLogProvider
             : Environment.CurrentDirectory;
         public NLogFileLoader nLogFileParser { get; set; }
 
-       private  ILogParserSettings UserSettings { get; set; }
+        private ILogParserSettings UserSettings { get; set; }
         public NLogDataProvider(ILogParserSettings userSettings)
         {
             UserSettings = userSettings;
         }
         public Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
+            LogManager.Instance.SetLogger(logger);
             nLogFileParser = new NLogFileLoader(UserSettingsManager.UserSettings.LogParserSettings);
             return Task.CompletedTask;
         }

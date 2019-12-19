@@ -12,9 +12,7 @@ namespace Analogy.LogViewer.NLogProvider
 {
     public class UserSettingsManager
     {
-        private static readonly string splitter = "*#*#*#";
-
-        private static readonly Lazy<UserSettingsManager> _instance =
+    private static readonly Lazy<UserSettingsManager> _instance =
             new Lazy<UserSettingsManager>(() => new UserSettingsManager());
         public static UserSettingsManager UserSettings { get; set; } = _instance.Value;
         private string NLogFileSetting { get; } = "AnalogyNLogSettings.json";

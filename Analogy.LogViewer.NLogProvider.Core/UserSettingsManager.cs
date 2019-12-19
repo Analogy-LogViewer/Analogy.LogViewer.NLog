@@ -12,7 +12,6 @@ namespace Analogy.LogViewer.NLogProvider
 {
     public class UserSettingsManager
     {
-        private static readonly string splitter = "*#*#*#";
 
         private static readonly Lazy<UserSettingsManager> _instance =
             new Lazy<UserSettingsManager>(() => new UserSettingsManager());

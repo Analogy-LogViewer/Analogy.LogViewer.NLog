@@ -26,14 +26,15 @@ namespace Analogy.LogViewer.NLogProvider
             : Environment.CurrentDirectory;
         public NLogFileLoader nLogFileParser { get; set; }
 
-       private  ILogParserSettings UserSettings { get; set; }
+        private ILogParserSettings UserSettings { get; set; }
         public NLogDataProvider(ILogParserSettings userSettings)
         {
             UserSettings = userSettings;
         }
-    
+
         public Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
+            LogManager.Instance.SetLogger(logger);
             nLogFileParser = new NLogFileLoader(UserSettingsManager.UserSettings.LogParserSettings);
             return Task.CompletedTask;
         }
