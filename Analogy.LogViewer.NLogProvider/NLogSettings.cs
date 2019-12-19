@@ -13,7 +13,7 @@ using Analogy.Interfaces;
 
 namespace Analogy.LogViewer.NLogProvider
 {
-    public partial class NLogSettings: UserControl
+    public partial class NLogSettings : UserControl
     {
         private ILogParserSettings LogParsersSettings => UserSettingsManager.UserSettings.LogParserSettings;
         public NLogSettings()
@@ -43,7 +43,7 @@ namespace Analogy.LogViewer.NLogProvider
                 SaveMapping();
                 try
                 {
-                    File.WriteAllText(saveFileDialog.FileName,LogParsersSettings.AsJson());
+                    File.WriteAllText(saveFileDialog.FileName, LogParsersSettings.AsJson());
                     MessageBox.Show("File Saved", @"Export settings", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
 
@@ -128,6 +128,11 @@ namespace Analogy.LogViewer.NLogProvider
 
                 }
             }
+        }
+
+        private void NLogSettings_Load(object sender, EventArgs e)
+        {
+            LoadNLogSettings(UserSettingsManager.UserSettings.LogParserSettings);
         }
     }
 }

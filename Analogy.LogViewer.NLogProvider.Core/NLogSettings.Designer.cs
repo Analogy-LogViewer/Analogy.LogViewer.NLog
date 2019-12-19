@@ -88,7 +88,7 @@
             // 
             // txtNLogLayout
             // 
-            this.txtNLogLayout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtNLogLayout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNLogLayout.Location = new System.Drawing.Point(172, 10);
             this.txtNLogLayout.Name = "txtNLogLayout";
@@ -97,7 +97,7 @@
             // 
             // txtNLogSeperator
             // 
-            this.txtNLogSeperator.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtNLogSeperator.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNLogSeperator.Location = new System.Drawing.Point(172, 38);
             this.txtNLogSeperator.Name = "txtNLogSeperator";
@@ -116,7 +116,7 @@
             // 
             // txtNLogExtension
             // 
-            this.txtNLogExtension.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtNLogExtension.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNLogExtension.Location = new System.Drawing.Point(172, 90);
             this.txtNLogExtension.Name = "txtNLogExtension";
@@ -146,8 +146,8 @@
             // 
             // analogyColumnsMatcherUC1
             // 
-            this.analogyColumnsMatcherUC1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.analogyColumnsMatcherUC1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.analogyColumnsMatcherUC1.Location = new System.Drawing.Point(0, 120);
             this.analogyColumnsMatcherUC1.Name = "analogyColumnsMatcherUC1";
@@ -156,7 +156,7 @@
             // 
             // txtbNLogDirectory
             // 
-            this.txtbNLogDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtbNLogDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbNLogDirectory.Location = new System.Drawing.Point(172, 63);
             this.txtbNLogDirectory.Name = "txtbNLogDirectory";
@@ -204,6 +204,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "NLogSettings";
             this.Size = new System.Drawing.Size(709, 506);
+            this.Load += new System.EventHandler(this.NLogSettings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
