@@ -11,16 +11,26 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <ApplicationIcon />
     <StartupObject />
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <AssemblyName>Analogy.LogViewer.NLogProvider</AssemblyName>
     <RootNamespace>Analogy.LogViewer.NLogProvider</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>Lior Banai © 2019</Copyright>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageIconUrl />
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Analogy_logo1.ico" />
+    <None Include="icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

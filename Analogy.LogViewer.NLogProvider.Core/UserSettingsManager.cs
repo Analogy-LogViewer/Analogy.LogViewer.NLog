@@ -29,8 +29,9 @@ namespace Analogy.LogViewer.NLogProvider
                     string data = File.ReadAllText(NLogFileSetting);
                     LogParserSettings = JsonConvert.DeserializeObject<LogParserSettings>(data);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    LogManager.Instance.LogException(ex, "NLog Provider", "Error loading user setting file");
                     LogParserSettings = new LogParserSettings();
                     LogParserSettings.Splitter = "|";
                     LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog" };
