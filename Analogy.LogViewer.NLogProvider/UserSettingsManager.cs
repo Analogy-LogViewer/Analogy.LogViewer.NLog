@@ -30,6 +30,7 @@ namespace Analogy.LogViewer.NLogProvider
                 }
                 catch (Exception ex)
                 {
+                    LogManager.Instance.LogException(ex,"NLog Provider","Error loading user setting file");
                     LogParserSettings = new LogParserSettings();
                     LogParserSettings.Splitter = "|";
                     LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog" };
