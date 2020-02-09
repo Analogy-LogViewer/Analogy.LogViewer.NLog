@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Analogy.DataProviders.Extensions;
 using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
 using Newtonsoft.Json;
 
 namespace Analogy.LogViewer.NLogProvider
@@ -50,7 +51,7 @@ namespace Analogy.LogViewer.NLogProvider
         {
             try
             {
-                File.WriteAllText(NLogFileSetting, LogParserSettings.AsJson());
+                File.WriteAllText(NLogFileSetting, JsonConvert.SerializeObject(LogParserSettings));
             }
             catch (Exception e)
             {

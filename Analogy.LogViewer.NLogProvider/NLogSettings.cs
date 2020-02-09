@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Analogy.DataProviders.Extensions;
 using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
+using Newtonsoft.Json;
 
 namespace Analogy.LogViewer.NLogProvider
 {
@@ -43,7 +45,7 @@ namespace Analogy.LogViewer.NLogProvider
                 SaveMapping();
                 try
                 {
-                    File.WriteAllText(saveFileDialog.FileName, LogParsersSettings.AsJson());
+                    File.WriteAllText(saveFileDialog.FileName,  JsonConvert.SerializeObject(LogParsersSettings));
                     MessageBox.Show("File Saved", @"Export settings", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
 
@@ -90,7 +92,7 @@ namespace Analogy.LogViewer.NLogProvider
                 try
                 {
                     var json = File.ReadAllText(openFileDialog1.FileName);
-                    LogParserSettings nlog = LogParserSettings.FromJson(json);
+                    LogParserSettings nlog = JsonConvert.DeserializeObject<LogParserSettings>(json);
                     LoadNLogSettings(nlog);
                     MessageBox.Show("File Imported. Save settings if desired", @"Import settings", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
