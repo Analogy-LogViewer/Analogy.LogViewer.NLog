@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Analogy.LogViewer.NLogProvider</id>
-    <version>1.0.1.0</version>
+    <version>1.0.4</version>
     <title>Analogy NLog Data provider</title>
     <authors>Lior Banai</authors>
     <owners>Lior Banai</owners>
@@ -12,8 +12,8 @@
     <icon>AnalogyNlog.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>NLog log file parser for Analogy Log Viewer</description>
-    <releaseNotes>Fix loading of user settings</releaseNotes>
-    <copyright>Copyright 2019 Lior Banai</copyright>
+    <releaseNotes>update according to interface changes</releaseNotes>
+    <copyright>Copyright 2020 Lior Banai</copyright>
     <tags></tags>
     <dependencies>
       <group targetFramework="net472">
