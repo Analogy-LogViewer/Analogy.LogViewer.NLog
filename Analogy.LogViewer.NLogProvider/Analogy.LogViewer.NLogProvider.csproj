@@ -7,8 +7,8 @@
     <AssemblyTitle>Analogy.LogViewer.NLogProvider</AssemblyTitle>
     <Product>Analogy.LogViewer.NLogProvider</Product>
     <Copyright>Lior Banai © 2020</Copyright>
-    <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <FileVersion>1.0.4.0</FileVersion>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
     <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -20,13 +20,14 @@
   <PropertyGroup>
     <ApplicationIcon>Analogy_logo1.ico</ApplicationIcon>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl />
     <RepositoryType>git</RepositoryType>
+    <Authors>Lior Banai</Authors>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />

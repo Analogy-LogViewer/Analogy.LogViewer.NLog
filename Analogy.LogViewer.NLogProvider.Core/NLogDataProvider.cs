@@ -62,7 +62,7 @@ namespace Analogy.LogViewer.NLogProvider
         public bool CanOpenFile(string fileName) => UserSettingsManager.UserSettings.LogParserSettings.CanOpenFile(fileName);
 
         public bool CanOpenAllFiles(IEnumerable<string> fileNames) => fileNames.All(CanOpenFile);
-
+        public bool DisableFilePoolingOption { get; } = false;
         public static List<FileInfo> GetSupportedFilesInternal(DirectoryInfo dirInfo, bool recursive)
         {
             List<FileInfo> files = dirInfo.GetFiles("*.log")
