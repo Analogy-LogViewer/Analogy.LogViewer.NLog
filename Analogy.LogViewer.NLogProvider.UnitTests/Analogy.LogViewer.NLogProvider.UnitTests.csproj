@@ -46,12 +46,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Analogy.LogViewer.NLogProvider\Analogy.LogViewer.NLogProvider.csproj">
-      <Project>{62285313-621e-4b80-84f0-cfee0b257d7a}</Project>
-      <Name>Analogy.LogViewer.NLogProvider</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Analogy.DataProviders.Extensions">
       <Version>1.0.4.1</Version>
     </PackageReference>

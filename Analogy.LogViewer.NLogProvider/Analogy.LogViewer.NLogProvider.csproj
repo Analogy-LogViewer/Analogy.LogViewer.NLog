@@ -1,40 +1,58 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>net472;netcoreapp3.1</TargetFrameworks>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <AssemblyTitle>Analogy.LogViewer.NLogProvider</AssemblyTitle>
-    <Product>Analogy.LogViewer.NLogProvider</Product>
-    <Copyright>Lior Banai © 2020</Copyright>
-    <AssemblyVersion>1.0.5.0</AssemblyVersion>
-    <FileVersion>1.0.5.0</FileVersion>
-    <OutputPath>bin\$(Configuration)\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugType>full</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Analogy_logo1.ico</ApplicationIcon>
+    <UseWindowsForms>true</UseWindowsForms>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <ApplicationIcon />
+    <StartupObject />
+    <Version>1.0.5.1</Version>
+    <AssemblyName>Analogy.LogViewer.NLogProvider</AssemblyName>
+    <RootNamespace>Analogy.LogViewer.NLogProvider</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.5</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</RepositoryUrl>
+    <Copyright>Lior Banai © 2020</Copyright>
+    <AssemblyVersion>1.0.5.1</AssemblyVersion>
     <PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
     <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl />
-    <RepositoryType>git</RepositoryType>
+    <FileVersion>1.0.5.1</FileVersion>
     <Authors>Lior Banai</Authors>
   </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
+    <None Remove="Analogy_logo1.ico" />
+    <None Include="icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Analogy_logo1.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Analogy.DataProviders.Extensions" Version="1.0.4.1" />
+    <PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.1.8" />
+    <PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
   <ItemGroup>
     <Compile Update="AnalogyColumnsMatcherUC.cs">
       <SubType>UserControl</SubType>
@@ -49,32 +67,12 @@
       <DependentUpon>NLogSettings.cs</DependentUpon>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Analogy.DataProviders.Extensions">
-      <Version>1.0.4.1</Version>
-    </PackageReference>
-    <PackageReference Include="Analogy.LogViewer.Interfaces">
-      <Version>2.1.8</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.SourceLink.GitHub">
-      <Version>1.0.0</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
+
   <ItemGroup>
     <EmbeddedResource Update="AnalogyColumnsMatcherUC.resx">
       <DependentUpon>AnalogyColumnsMatcherUC.cs</DependentUpon>
@@ -82,15 +80,10 @@
     <EmbeddedResource Update="NLogSettings.resx">
       <DependentUpon>NLogSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="icon.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="Resources\nlog.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Analogy_logo1.ico" />
-  </ItemGroup>
+
 </Project>

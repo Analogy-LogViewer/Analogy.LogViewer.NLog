@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Analogy.DataProviders.Extensions;
 using Analogy.Interfaces;
@@ -45,7 +40,7 @@ namespace Analogy.LogViewer.NLogProvider
                 SaveMapping();
                 try
                 {
-                    File.WriteAllText(saveFileDialog.FileName,  JsonConvert.SerializeObject(LogParsersSettings));
+                    File.WriteAllText(saveFileDialog.FileName, JsonConvert.SerializeObject(LogParsersSettings));
                     MessageBox.Show("File Saved", @"Export settings", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
 
