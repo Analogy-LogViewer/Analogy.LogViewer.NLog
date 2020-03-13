@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Analogy.DataProviders.Extensions;
-using Analogy.Interfaces;
+﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Analogy.LogViewer.NLogProvider
 {
@@ -56,7 +52,7 @@ namespace Analogy.LogViewer.NLogProvider
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                LogManager.Instance.LogException(e, "Nlog", "Error saving settings: " + e.Message);
             }
 
 

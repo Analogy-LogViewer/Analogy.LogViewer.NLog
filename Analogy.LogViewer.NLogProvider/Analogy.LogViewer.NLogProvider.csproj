@@ -6,9 +6,6 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <UseWindowsForms>true</UseWindowsForms>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <ApplicationIcon />
     <StartupObject />
     <Version>1.0.5.1</Version>
