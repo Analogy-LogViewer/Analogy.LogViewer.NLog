@@ -42,12 +42,13 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReflectionLoadingTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Analogy.DataProviders.Extensions">
-      <Version>1.0.4.2</Version>
+      <Version>1.0.4.3</Version>
     </PackageReference>
     <PackageReference Include="Analogy.LogViewer.Interfaces">
       <Version>2.1.8</Version>
@@ -58,6 +59,12 @@
     <PackageReference Include="MSTest.TestFramework">
       <Version>2.1.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Analogy.LogViewer.NLogProvider\Analogy.LogViewer.NLogProvider.csproj">
+      <Project>{b70f53de-25d5-4d08-8ea7-d9a3744302b7}</Project>
+      <Name>Analogy.LogViewer.NLogProvider</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

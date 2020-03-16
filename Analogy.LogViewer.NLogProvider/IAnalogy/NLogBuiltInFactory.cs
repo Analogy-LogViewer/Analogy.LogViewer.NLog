@@ -64,7 +64,7 @@ namespace Analogy.LogViewer.NLogProvider
         public string Title { get; } = "NLog Settings";
         public UserControl DataProviderSettings { get; } = new NLogSettings();
         public Image SmallImage { get; } = Resources.nlog;
-        public Image LargeImage { get; }
+        public Image LargeImage { get; } = null;
 
         public Task SaveSettingsAsync()
         {
