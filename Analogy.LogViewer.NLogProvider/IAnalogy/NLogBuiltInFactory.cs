@@ -15,7 +15,7 @@ namespace Analogy.LogViewer.NLogProvider
     {
         public static Guid AnalogyNLogGuid { get; } = new Guid("33CBFA00-DA3E-4F9F-B5A1-BE978FD09D57");
         public Guid FactoryId { get; } = AnalogyNLogGuid;
-        public string Title { get; } = "Analogy NLogs Parser";
+        public string Title { get; } = "NLogs Parser";
         public IEnumerable<IAnalogyChangeLog> ChangeLog => NLogProvider.ChangeLog.GetChangeLog();
         public IEnumerable<string> Contributors { get; } = new List<string> { "Lior Banai" };
         public string About { get; } = "Analogy NLogs Parser";

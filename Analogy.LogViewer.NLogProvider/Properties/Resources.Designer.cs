@@ -69,5 +69,25 @@ namespace Analogy.LogViewer.NLogProvider.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nlog_icon_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("nlog_icon_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nlog_icon_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("nlog_icon_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
