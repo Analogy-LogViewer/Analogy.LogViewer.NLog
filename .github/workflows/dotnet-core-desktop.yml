@@ -57,7 +57,7 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: 'artifactory'
-        path: ./Analogy.LogViewer.Example/bin/${{ matrix.configuration }}
+        path: ./Analogy.LogViewer.NLogProvider/bin/${{ matrix.configuration }}
   push-nuget:
     name: 'Push NuGet Packages'
     needs: build
