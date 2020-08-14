@@ -12,7 +12,7 @@ namespace Analogy.LogViewer.NLogProvider
 {
     public partial class NLogSettings : UserControl
     {
-        private ILogParserSettings LogParsersSettings => UserSettingsManager.UserSettings.LogParserSettings;
+        private ISplitterLogParserSettings LogParsersSettings => UserSettingsManager.UserSettings.LogParserSettings;
         public NLogSettings()
         {
             InitializeComponent();
@@ -87,7 +87,7 @@ namespace Analogy.LogViewer.NLogProvider
                 try
                 {
                     var json = File.ReadAllText(openFileDialog1.FileName);
-                    LogParserSettings nlog = JsonConvert.DeserializeObject<LogParserSettings>(json);
+                    SplitterLogParserSettings nlog = JsonConvert.DeserializeObject<SplitterLogParserSettings>(json);
                     LoadNLogSettings(nlog);
                     MessageBox.Show("File Imported. Save settings if desired", @"Import settings", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -100,7 +100,7 @@ namespace Analogy.LogViewer.NLogProvider
                 }
             }
         }
-        private void LoadNLogSettings(ILogParserSettings nLogParserSettings)
+        private void LoadNLogSettings(ISplitterLogParserSettings nLogParserSettings)
         {
             if (nLogParserSettings.IsConfigured)
             {

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Analogy.DataProviders.Extensions;
 using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
 
 namespace Analogy.LogViewer.NLogProvider
 {
@@ -56,7 +57,7 @@ namespace Analogy.LogViewer.NLogProvider
             lstBoxItems.Items.AddRange(columns);
         }
 
-        public void LoadMapping(ILogParserSettings parser)
+        public void LoadMapping(ISplitterLogParserSettings parser)
         {
             lstBAnalogyColumns.Items.Clear();
             for (int i = 0; i < 21; i++)

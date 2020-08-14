@@ -7,17 +7,18 @@ using System.Threading;
 using System.Threading.Tasks;
 using Analogy.DataProviders.Extensions;
 using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
 
 namespace Analogy.LogViewer.NLogProvider
 {
     public class NLogFileLoader
     {
-        private ILogParserSettings _logFileSettings;
-        private GeneralFileParser _parser;
-        public NLogFileLoader(ILogParserSettings logFileSettings)
+        private ISplitterLogParserSettings _logFileSettings;
+        private NLogFileParser _parser;
+        public NLogFileLoader(ISplitterLogParserSettings logFileSettings)
         {
             _logFileSettings = logFileSettings;
-            _parser = new GeneralFileParser(_logFileSettings);
+            _parser = new NLogFileParser(_logFileSettings);
         }
         public async Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
         {

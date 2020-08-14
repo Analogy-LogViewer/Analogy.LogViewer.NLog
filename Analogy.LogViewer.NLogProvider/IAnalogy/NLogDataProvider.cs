@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Analogy.DataProviders.Extensions;
 using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
 using Newtonsoft.Json;
 
 namespace Analogy.LogViewer.NLogProvider
@@ -27,14 +28,14 @@ namespace Analogy.LogViewer.NLogProvider
             : Environment.CurrentDirectory;
         public NLogFileLoader nLogFileParser { get; set; }
 
-        private ILogParserSettings UserSettings { get; set; }
+        private ISplitterLogParserSettings UserSettings { get; set; }
         public bool UseCustomColors { get; set; } = false;
         public IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
 
         public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
-        public NLogDataProvider(ILogParserSettings userSettings)
+        public NLogDataProvider(ISplitterLogParserSettings userSettings)
         {
             UserSettings = userSettings;
         }

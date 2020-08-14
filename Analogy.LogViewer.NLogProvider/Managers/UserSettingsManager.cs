@@ -14,7 +14,7 @@ namespace Analogy.LogViewer.NLogProvider
             new Lazy<UserSettingsManager>(() => new UserSettingsManager());
         public static UserSettingsManager UserSettings { get; set; } = _instance.Value;
         private string NLogFileSetting { get; } = "AnalogyNLogSettings.json";
-        public ILogParserSettings LogParserSettings { get; set; }
+        public ISplitterLogParserSettings LogParserSettings { get; set; }
 
 
         public UserSettingsManager()
@@ -24,19 +24,19 @@ namespace Analogy.LogViewer.NLogProvider
                 try
                 {
                     string data = File.ReadAllText(NLogFileSetting);
-                    LogParserSettings = JsonConvert.DeserializeObject<LogParserSettings>(data);
+                    LogParserSettings = JsonConvert.DeserializeObject<SplitterLogParserSettings>(data);
                 }
                 catch (Exception ex)
                 {
                     LogManager.Instance.LogException(ex, "NLog Provider", "Error loading user setting file");
-                    LogParserSettings = new LogParserSettings();
+                    LogParserSettings = new SplitterLogParserSettings();
                     LogParserSettings.Splitter = "|";
                     LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog" };
                 }
             }
             else
             {
-                LogParserSettings = new LogParserSettings();
+                LogParserSettings = new SplitterLogParserSettings();
                 LogParserSettings.Splitter = "|";
                 LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog" };
 
