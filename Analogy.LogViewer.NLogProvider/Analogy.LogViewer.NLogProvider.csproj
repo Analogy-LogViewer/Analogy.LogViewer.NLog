@@ -8,19 +8,19 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<ApplicationIcon />
 		<StartupObject />
-		<Version>1.1.7.1</Version>
+		<Version>1.1.7.2</Version>
 		<AssemblyName>Analogy.LogViewer.NLogProvider</AssemblyName>
 		<RootNamespace>Analogy.LogViewer.NLogProvider</RootNamespace>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Copyright>Lior Banai © 2020</Copyright>
-		<AssemblyVersion>1.1.7.1</AssemblyVersion>
+		<AssemblyVersion>1.1.7.2</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageIconUrl />
-		<FileVersion>1.1.7.1</FileVersion>
+		<FileVersion>1.1.7.2</FileVersion>
 		<Authors>Lior Banai</Authors>
 		<Description>NLog Parser For Analogy Log Viewer</Description>
 		<Company>Analogy.LogViewer</Company>
