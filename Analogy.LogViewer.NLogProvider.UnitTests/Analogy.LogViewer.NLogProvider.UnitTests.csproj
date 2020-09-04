@@ -47,9 +47,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Analogy.DataProviders.Extensions">
-      <Version>1.1.7.4</Version>
-    </PackageReference>
     <PackageReference Include="Analogy.LogViewer.Interfaces">
       <Version>2.3.2.6</Version>
     </PackageReference>
