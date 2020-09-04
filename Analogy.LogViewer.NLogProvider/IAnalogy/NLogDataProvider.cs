@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Analogy.DataProviders.Extensions;
 using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 using Newtonsoft.Json;
@@ -15,10 +14,10 @@ namespace Analogy.LogViewer.NLogProvider
 {
     public class NLogDataProvider : IAnalogyOfflineDataProvider
     {
-        public string OptionalTitle { get; } = "Analogy Built-In NLog Parser";
-        public Guid Id { get; } = new Guid("4C002803-607F-4385-9C19-949FF1F29877");
-        public Image LargeImage => null;
-        public Image SmallImage => null;
+        public string OptionalTitle { get; set; } = "Analogy Built-In NLog Parser";
+        public Guid Id { get; set; } = new Guid("4C002803-607F-4385-9C19-949FF1F29877");
+        public Image LargeImage { get; set; } = null;
+        public Image SmallImage { get; set; } = null;
         public bool CanSaveToLogFile { get; } = false;
         public string FileOpenDialogFilters { get; } = "Nlog files|*.log;*.nlog|NLog file (*.log)|*.log|NLog File (*.nlog)|*.nlog";
         public string FileSaveDialogFilters { get; } = string.Empty;

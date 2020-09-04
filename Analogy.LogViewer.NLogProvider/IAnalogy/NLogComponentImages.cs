@@ -1,11 +1,11 @@
-﻿using Analogy.DataProviders.Extensions;
-using Analogy.LogViewer.NLogProvider.Properties;
+﻿using Analogy.LogViewer.NLogProvider.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Analogy.Interfaces;
 
 namespace Analogy.LogViewer.NLogProvider.IAnalogy
 {

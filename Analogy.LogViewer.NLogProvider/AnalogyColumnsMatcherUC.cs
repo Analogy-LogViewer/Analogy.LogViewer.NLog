@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Analogy.DataProviders.Extensions;
 using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
 
@@ -44,10 +43,10 @@ namespace Analogy.LogViewer.NLogProvider
 
         private void lstBAnalogyColumns_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-                if (lstBAnalogyColumns.SelectedIndex > lstBoxItems.Items.Count - 1) return;
-                lstBoxItems.SelectedIndex = lstBAnalogyColumns.SelectedIndex;
-            
+
+            if (lstBAnalogyColumns.SelectedIndex > lstBoxItems.Items.Count - 1) return;
+            lstBoxItems.SelectedIndex = lstBAnalogyColumns.SelectedIndex;
+
 
         }
 

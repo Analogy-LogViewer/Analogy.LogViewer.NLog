@@ -1,11 +1,11 @@
-﻿using Analogy.DataProviders.Extensions;
-using Analogy.Interfaces.Factories;
+﻿using Analogy.Interfaces.Factories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Analogy.Interfaces;
 
 namespace Analogy.LogViewer.NLogProvider.UnitTests
 {
