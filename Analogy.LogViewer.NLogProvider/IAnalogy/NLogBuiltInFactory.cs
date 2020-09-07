@@ -18,6 +18,10 @@ namespace Analogy.LogViewer.NLogProvider
         public IEnumerable<IAnalogyChangeLog> ChangeLog { get; set; } = NLogProvider.ChangeLog.GetChangeLog();
         public IEnumerable<string> Contributors { get; set; } = new List<string> { "Lior Banai" };
         public string About { get; set; } = "Analogy NLogs Parser";
+        public Image SmallImage { get; set; } = Resources.nlog_icon_16x16;
+        public Image LargeImage { get; set; } = Resources.nlog_icon_32x32;
+
+
     }
 
     public class AnalogyNLogDataProviderFactory : IAnalogyDataProvidersFactory
