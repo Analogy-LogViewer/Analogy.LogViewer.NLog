@@ -28,7 +28,7 @@ namespace Analogy.LogViewer.NLogProvider
                 }
                 catch (Exception ex)
                 {
-                    LogManager.Instance.LogException(ex, "NLog Provider", "Error loading user setting file");
+                    LogManager.Instance.LogException("Error loading user setting file",ex, "NLog Provider");
                     LogParserSettings = new SplitterLogParserSettings();
                     LogParserSettings.Splitter = "|";
                     LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog" };
@@ -52,7 +52,7 @@ namespace Analogy.LogViewer.NLogProvider
             }
             catch (Exception e)
             {
-                LogManager.Instance.LogException(e, "Nlog", "Error saving settings: " + e.Message);
+                LogManager.Instance.LogException("Error saving settings: " + e.Message,e, "Nlog");
             }
 
 
