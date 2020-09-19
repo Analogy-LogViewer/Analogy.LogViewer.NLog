@@ -14,8 +14,8 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Copyright>Lior Banai © 2020</Copyright>
-		<PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLogProvider</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLog</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLog</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageIconUrl />
