@@ -23,7 +23,7 @@ namespace Analogy.LogViewer.NLogProvider
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public AnalogyLogMessage Parse(string line)
         {
-            var items = line.Split(splitters, StringSplitOptions.RemoveEmptyEntries).ToList();
+            var items = line.Split(splitters, StringSplitOptions.None).ToList();
             List<(AnalogyLogMessagePropertyName, string)> map = new List<(AnalogyLogMessagePropertyName, string)>();
             for (int i = 0; i < items.Count; i++)
             {

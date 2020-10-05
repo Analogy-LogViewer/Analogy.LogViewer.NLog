@@ -61,18 +61,26 @@ namespace Analogy.LogViewer.NLogProvider
                 {
                     using (var reader = new StreamReader(stream))
                     {
+                        var line = await reader.ReadLineAsync();
                         while (!reader.EndOfStream)
                         {
-                            var line = await reader.ReadLineAsync();
-                            var items = line.Split(_parser.splitters, StringSplitOptions.RemoveEmptyEntries);
-                            while (items.Length < _logFileSettings.ValidItemsCount)
+                            var nextLine = await reader.ReadLineAsync();
+                            var hasSeparators = _parser.splitters.Any(nextLine.Contains);
+                            if (!hasSeparators) // handle multi-line messages
                             {
-                                line = line + Environment.NewLine + await reader.ReadLineAsync();
-                                items = line.Split(_parser.splitters, StringSplitOptions.RemoveEmptyEntries);
+                                line = line + Environment.NewLine + nextLine;
                             }
-                            var entry = _parser.Parse(line);
-                            messages.Add(entry);
+                            else
+                            {
+                                var entry = _parser.Parse(line);
+                                messages.Add(entry);
+                                line = nextLine;
+                            }
+
                         }
+                        var entry1 = _parser.Parse(line);
+                        messages.Add(entry1);
+
                     }
                 }
                 messagesHandler.AppendMessages(messages, fileName);
