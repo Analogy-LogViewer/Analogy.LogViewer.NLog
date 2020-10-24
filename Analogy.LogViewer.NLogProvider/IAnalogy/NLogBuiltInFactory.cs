@@ -13,6 +13,11 @@ namespace Analogy.LogViewer.NLogProvider
     public class NLogBuiltInFactory : IAnalogyFactory
     {
         public static Guid AnalogyNLogGuid { get; } = new Guid("33CBFA00-DA3E-4F9F-B5A1-BE978FD09D57");
+        public void RegisterNotificationCallback(INotificationReporter notificationReporter)
+        {
+            
+        }
+
         public Guid FactoryId { get; set; } = AnalogyNLogGuid;
         public string Title { get; set; } = "NLogs Parser";
         public IEnumerable<IAnalogyChangeLog> ChangeLog { get; set; } = NLogProvider.ChangeLog.GetChangeLog();
