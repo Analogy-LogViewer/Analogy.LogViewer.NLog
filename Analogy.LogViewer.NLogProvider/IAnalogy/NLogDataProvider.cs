@@ -54,7 +54,10 @@ namespace Analogy.LogViewer.NLogProvider
         public async Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
         {
             if (CanOpenFile(fileName))
+            {
                 return await nLogFileParser.Process(fileName, token, messagesHandler);
+            }
+
             return new List<AnalogyLogMessage>(0);
 
         }
@@ -77,7 +80,10 @@ namespace Analogy.LogViewer.NLogProvider
                 .Concat(dirInfo.GetFiles("*.nlog"))
                 .ToList();
             if (!recursive)
+            {
                 return files;
+            }
+
             try
             {
                 foreach (DirectoryInfo dir in dirInfo.GetDirectories())

@@ -35,7 +35,11 @@ namespace Analogy.LogViewer.NLogProvider.UnitTests
                         {
                             if (aType.GetInterface(nameof(IAnalogyFactory)) != null)
                             {
-                                if (!(Activator.CreateInstance(aType) is IAnalogyFactory factory)) continue;
+                                if (!(Activator.CreateInstance(aType) is IAnalogyFactory factory))
+                                {
+                                    continue;
+                                }
+
                                 //if no exception in init then add to list
                                 factories.Add(factory);
                                 assemblies.Add((factory, assembly));
@@ -45,7 +49,10 @@ namespace Analogy.LogViewer.NLogProvider.UnitTests
                             if (aType.GetInterface(nameof(IAnalogyDataProviderSettings)) != null)
                             {
                                 if (!(Activator.CreateInstance(aType) is IAnalogyDataProviderSettings setting))
+                                {
                                     continue;
+                                }
+
                                 dataProviderSettings.Add(setting);
                             }
                         }
