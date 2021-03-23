@@ -329,3 +329,4 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /Analogy.LogViewer.NLogProvider/nuget.exe
+/Visual Studio 2019/Visualizers/attribcache140.bin
