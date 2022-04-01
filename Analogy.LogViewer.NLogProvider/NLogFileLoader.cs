@@ -59,6 +59,7 @@ namespace Analogy.LogViewer.NLogProvider
             {
                 using (var stream = File.OpenRead(fileName))
                 {
+                    long count = 0;
                     using (var reader = new StreamReader(stream))
                     {
                         var line = await reader.ReadLineAsync();
@@ -80,7 +81,8 @@ namespace Analogy.LogViewer.NLogProvider
                         }
                         var entry1 = _parser.Parse(line);
                         messages.Add(entry1);
-
+                        count++;
+                        messagesHandler.ReportFileReadProgress(new AnalogyFileReadProgress(AnalogyFileReadProgressType.Incremental, 1, count, count));
                     }
                 }
                 messagesHandler.AppendMessages(messages, fileName);
