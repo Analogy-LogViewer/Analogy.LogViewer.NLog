@@ -8,7 +8,7 @@
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 		<UseWindowsForms>true</UseWindowsForms>
-		<Version>2.1.2</Version>
+		<Version>2.1.3</Version>
 		<AssemblyName>Analogy.LogViewer.NLogProvider</AssemblyName>
 		<RootNamespace>Analogy.LogViewer.NLogProvider</RootNamespace>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -40,8 +40,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="3.2.3" />
-		<PackageReference Include="Analogy.LogViewer.Template" Version="3.2.3" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="3.2.4" />
+		<PackageReference Include="Analogy.LogViewer.Template" Version="3.2.4" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.1.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
