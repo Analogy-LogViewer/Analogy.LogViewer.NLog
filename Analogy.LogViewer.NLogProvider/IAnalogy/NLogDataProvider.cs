@@ -34,11 +34,11 @@ namespace Analogy.LogViewer.NLogProvider
             UserSettings = userSettings;
         }
 
-        public override Task InitializeDataProviderAsync(IAnalogyLogger logger)
+        public override Task InitializeDataProvider(IAnalogyLogger logger)
         {
             LogManager.Instance.SetLogger(logger);
             nLogFileParser = new NLogFileLoader(UserSettingsManager.UserSettings.LogParserSettings);
-            return base.InitializeDataProviderAsync(logger);
+            return base.InitializeDataProvider(logger);
         }
 
         public override async Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
