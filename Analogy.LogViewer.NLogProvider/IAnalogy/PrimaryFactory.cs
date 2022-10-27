@@ -39,15 +39,20 @@ namespace Analogy.LogViewer.NLogProvider
         public IEnumerable<IAnalogyCustomAction> Actions { get; } = new List<IAnalogyCustomAction>(0);
     }
 
-    public class AnalogyNLogSettings : Template.UserSettingsFactory
+    public class AnalogyNLogSettings : Template.TemplateUserSettingsFactory
     {
 
         public override  Guid Id { get; set; } = new Guid("8D24EC70-60C0-4823-BE9C-F4A59303FFB3");
         public override Guid FactoryId { get; set; } = PrimaryFactory.Id;
         public override string Title { get; set; } = "NLog Settings";
-        public override UserControl DataProviderSettings { get; set; } = new NLogSettings();
+        public override UserControl DataProviderSettings { get; set; }
         public override Image? SmallImage { get; set; } = Resources.nlog;
         public override Image? LargeImage { get; set; } = null;
+
+        public override void CreateUserControl(IAnalogyLogger logger)
+        {
+           DataProviderSettings = new NLogSettings();
+        }
 
         public override Task SaveSettingsAsync()
         {
