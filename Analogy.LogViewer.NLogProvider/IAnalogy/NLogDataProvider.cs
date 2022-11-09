@@ -36,7 +36,6 @@ namespace Analogy.LogViewer.NLogProvider
 
         public override Task InitializeDataProvider(IAnalogyLogger logger)
         {
-            LogManager.Instance.SetLogger(logger);
             nLogFileParser = new NLogFileLoader(UserSettingsManager.UserSettings.LogParserSettings);
             return base.InitializeDataProvider(logger);
         }
