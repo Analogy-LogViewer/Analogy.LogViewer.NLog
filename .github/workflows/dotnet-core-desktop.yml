@@ -86,6 +86,7 @@ jobs:
           Get-ChildItem .\artifactory -Filter *.nupkg |
           Where-Object { !$_.Name.Contains('preview') } |
           ForEach-Object { nuget push $_  -Source "GPR" -SkipDuplicate } 
+
 concurrency: 
   group: ${{ github.ref }}
   cancel-in-progress: true
