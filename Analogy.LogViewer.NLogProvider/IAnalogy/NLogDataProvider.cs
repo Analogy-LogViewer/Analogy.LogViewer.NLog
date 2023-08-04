@@ -1,5 +1,6 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,9 +15,9 @@ namespace Analogy.LogViewer.NLogProvider
     {
         public override string OptionalTitle { get; set; } = "Analogy Built-In NLog Parser";
         public override Guid Id { get; set; } = new Guid("4C002803-607F-4385-9C19-949FF1F29877");
-        public override Image? LargeImage { get; set; } = null;
-        public override Image? SmallImage { get; set; } = null;
-        public override bool CanSaveToLogFile { get; set; } = false;
+        public override Image? LargeImage { get; set; }
+        public override Image? SmallImage { get; set; }
+        public override bool CanSaveToLogFile { get; set; }
         public override string FileOpenDialogFilters { get; set; } = "Nlog files|*.log;*.nlog|NLog file (*.log)|*.log|NLog File (*.nlog)|*.nlog";
         public override string FileSaveDialogFilters { get; set; } = string.Empty;
         public override IEnumerable<string> SupportFormats { get; set; } = new[] { "*.nlog", "*.log" };
@@ -24,19 +25,19 @@ namespace Analogy.LogViewer.NLogProvider
         public override string InitialFolderFullPath => Directory.Exists(UserSettings?.Directory)
             ? UserSettings.Directory
             : Environment.CurrentDirectory;
-        public NLogFileLoader nLogFileParser { get; set; }
+        public NLogFileLoader NLogFileParser { get; set; }
 
         private ISplitterLogParserSettings? UserSettings { get; set; }
-        public override bool UseCustomColors { get; set; } = false;
+        public override bool UseCustomColors { get; set; }
 
         public NLogDataProvider(ISplitterLogParserSettings userSettings)
         {
             UserSettings = userSettings;
         }
 
-        public override Task InitializeDataProvider(IAnalogyLogger logger)
+        public override Task InitializeDataProvider(ILogger logger)
         {
-            nLogFileParser = new NLogFileLoader(UserSettingsManager.UserSettings.LogParserSettings);
+            NLogFileParser = new NLogFileLoader(UserSettingsManager.UserSettings.LogParserSettings);
             return base.InitializeDataProvider(logger);
         }
 
@@ -44,7 +45,7 @@ namespace Analogy.LogViewer.NLogProvider
         {
             if (CanOpenFile(fileName))
             {
-                return await nLogFileParser.Process(fileName, token, messagesHandler);
+                return await NLogFileParser.Process(fileName, token, messagesHandler);
             }
 
             return new List<AnalogyLogMessage>(0);

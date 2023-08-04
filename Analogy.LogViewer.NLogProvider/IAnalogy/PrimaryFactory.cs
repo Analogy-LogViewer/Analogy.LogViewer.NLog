@@ -1,6 +1,7 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.Factories;
 using Analogy.LogViewer.NLogProvider.Properties;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -47,9 +48,9 @@ namespace Analogy.LogViewer.NLogProvider
         public override string Title { get; set; } = "NLog Settings";
         public override UserControl DataProviderSettings { get; set; }
         public override Image? SmallImage { get; set; } = Resources.nlog;
-        public override Image? LargeImage { get; set; } = null;
+        public override Image? LargeImage { get; set; }
 
-        public override void CreateUserControl(IAnalogyLogger logger)
+        public override void CreateUserControl(ILogger logger)
         {
            DataProviderSettings = new NLogSettings();
         }

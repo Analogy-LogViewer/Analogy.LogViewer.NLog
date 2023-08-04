@@ -73,9 +73,9 @@ namespace Analogy.LogViewer.NLogProvider
             lstBAnalogyColumns.Items.Clear();
             for (int i = 0; i < 21; i++)
             {
-                if (parser.Maps.ContainsKey(i))
+                if (parser.Maps.TryGetValue(i, out AnalogyLogMessagePropertyName map))
                 {
-                    lstBAnalogyColumns.Items.Add(parser.Maps[i]);
+                    lstBAnalogyColumns.Items.Add(map);
                 }
                 else
                 {

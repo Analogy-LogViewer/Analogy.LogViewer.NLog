@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Analogy.LogViewer.Template.Managers;
+using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.NLogProvider
 {
@@ -29,7 +30,7 @@ namespace Analogy.LogViewer.NLogProvider
                 }
                 catch (Exception ex)
                 {
-                    LogManager.Instance.LogException("Error loading user setting file",ex, "NLog Provider");
+                    LogManager.Instance.LogError(ex, "Error loading user setting file {message}", ex.Message);
                     LogParserSettings = new SplitterLogParserSettings();
                     LogParserSettings.Splitter = "|";
                     LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog" };
@@ -53,7 +54,7 @@ namespace Analogy.LogViewer.NLogProvider
             }
             catch (Exception e)
             {
-                LogManager.Instance.LogException("Error saving settings: " + e.Message,e, "Nlog");
+                LogManager.Instance.LogError(e, "Error saving settings: " + e.Message);
             }
 
 
