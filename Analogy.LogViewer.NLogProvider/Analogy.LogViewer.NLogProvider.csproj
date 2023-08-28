@@ -8,7 +8,7 @@
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 		<UseWindowsForms>true</UseWindowsForms>
-		<VersionPrefix>5.0.0.0</VersionPrefix>
+		<VersionPrefix>5.0.1</VersionPrefix>
 		<VersionSuffix></VersionSuffix>
 		<AssemblyName>Analogy.LogViewer.NLogProvider</AssemblyName>
 		<RootNamespace>Analogy.LogViewer.NLogProvider</RootNamespace>
