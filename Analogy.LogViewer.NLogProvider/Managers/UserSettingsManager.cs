@@ -15,17 +15,19 @@ namespace Analogy.LogViewer.NLogProvider
         private static readonly Lazy<UserSettingsManager> _instance =
             new Lazy<UserSettingsManager>(() => new UserSettingsManager());
         public static UserSettingsManager UserSettings { get; set; } = _instance.Value;
-        private string NLogFileSetting { get; } = "AnalogyNLogSettings.json";
+        private string NLogFile { get; } = "AnalogyNLogSettings.json";
+        public string FileName => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Analogy.LogViewer", NLogFile);
+
         public ISplitterLogParserSettings LogParserSettings { get; set; }
 
 
         public UserSettingsManager()
         {
-            if (File.Exists(NLogFileSetting))
+            if (File.Exists(FileName))
             {
                 try
                 {
-                    string data = File.ReadAllText(NLogFileSetting);
+                    string data = File.ReadAllText(FileName);
                     LogParserSettings = JsonConvert.DeserializeObject<SplitterLogParserSettings>(data);
                 }
                 catch (Exception ex)
@@ -50,7 +52,7 @@ namespace Analogy.LogViewer.NLogProvider
         {
             try
             {
-                File.WriteAllText(NLogFileSetting, JsonConvert.SerializeObject(LogParserSettings));
+                File.WriteAllText(FileName, JsonConvert.SerializeObject(LogParserSettings));
             }
             catch (Exception e)
             {
