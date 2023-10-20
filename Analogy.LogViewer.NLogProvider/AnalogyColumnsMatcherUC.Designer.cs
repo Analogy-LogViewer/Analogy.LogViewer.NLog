@@ -31,161 +31,294 @@ namespace Analogy.LogViewer.NLogProvider
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnalogyColumnsMatcherUC));
-            spltColumns = new SplitContainer();
-            lstBAnalogyColumns = new ListBox();
-            labelControl9 = new Label();
-            splitContainerButtons = new SplitContainer();
-            sBtnMoveUp = new Button();
-            BtnMoveDown = new Button();
-            lstBoxItems = new ListBox();
-            labelControl10 = new Label();
-            ((System.ComponentModel.ISupportInitialize)spltColumns).BeginInit();
-            spltColumns.Panel1.SuspendLayout();
-            spltColumns.Panel2.SuspendLayout();
-            spltColumns.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainerButtons).BeginInit();
-            splitContainerButtons.Panel1.SuspendLayout();
-            splitContainerButtons.Panel2.SuspendLayout();
-            splitContainerButtons.SuspendLayout();
+            label1 = new Label();
+            label2 = new Label();
+            nudDate = new NumericUpDown();
+            nudLevel = new NumericUpDown();
+            nudSource = new NumericUpDown();
+            nudText = new NumericUpDown();
+            label3 = new Label();
+            label4 = new Label();
+            nudProcessName = new NumericUpDown();
+            nudLineNumber = new NumericUpDown();
+            label5 = new Label();
+            label6 = new Label();
+            nudFileName = new NumericUpDown();
+            nudMethodName = new NumericUpDown();
+            label7 = new Label();
+            label8 = new Label();
+            nudProcessId = new NumericUpDown();
+            label9 = new Label();
+            nudMachineName = new NumericUpDown();
+            label10 = new Label();
+            nudUserName = new NumericUpDown();
+            label11 = new Label();
+            ((System.ComponentModel.ISupportInitialize)nudDate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudLevel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudText).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudProcessName).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudLineNumber).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudFileName).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudMethodName).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudProcessId).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudMachineName).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudUserName).BeginInit();
             SuspendLayout();
             // 
-            // spltColumns
+            // label1
             // 
-            spltColumns.Dock = DockStyle.Fill;
-            spltColumns.Location = new Point(0, 0);
-            spltColumns.Name = "spltColumns";
+            label1.AutoSize = true;
+            label1.Location = new Point(10, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(85, 16);
+            label1.TabIndex = 11;
+            label1.Text = "Date Column:";
             // 
-            // spltColumns.Panel1
+            // label2
             // 
-            spltColumns.Panel1.Controls.Add(lstBAnalogyColumns);
-            spltColumns.Panel1.Controls.Add(labelControl9);
-            spltColumns.Panel1.Controls.Add(splitContainerButtons);
-            spltColumns.Panel1.Text = "Panel1";
+            label2.AutoSize = true;
+            label2.Location = new Point(10, 67);
+            label2.Name = "label2";
+            label2.Size = new Size(139, 16);
+            label2.TabIndex = 12;
+            label2.Text = "Text/Message Column:";
             // 
-            // spltColumns.Panel2
+            // nudDate
             // 
-            spltColumns.Panel2.Controls.Add(lstBoxItems);
-            spltColumns.Panel2.Controls.Add(labelControl10);
-            spltColumns.Panel2.Text = "Panel2";
-            spltColumns.Size = new Size(602, 483);
-            spltColumns.SplitterDistance = 167;
-            spltColumns.TabIndex = 10;
+            nudDate.Location = new Point(232, 9);
+            nudDate.Name = "nudDate";
+            nudDate.Size = new Size(150, 23);
+            nudDate.TabIndex = 13;
+            nudDate.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // lstBAnalogyColumns
+            // nudLevel
             // 
-            lstBAnalogyColumns.Dock = DockStyle.Fill;
-            lstBAnalogyColumns.ItemHeight = 16;
-            lstBAnalogyColumns.Items.AddRange(new object[] { "Date", "Text", "Source", "Module", "MethodName", "FileName", "User", "LineNumber", "ProcessId", "ThreadId", "MachineName", "Level", "Class", "Id", "__ignore__", "__ignore__", "__ignore__", "__ignore__", "__ignore__", "__ignore__", "__ignore__" });
-            lstBAnalogyColumns.Location = new Point(47, 16);
-            lstBAnalogyColumns.Name = "lstBAnalogyColumns";
-            lstBAnalogyColumns.Size = new Size(120, 467);
-            lstBAnalogyColumns.TabIndex = 0;
-            lstBAnalogyColumns.SelectedIndexChanged += lstBAnalogyColumns_SelectedIndexChanged;
+            nudLevel.Location = new Point(232, 38);
+            nudLevel.Name = "nudLevel";
+            nudLevel.Size = new Size(150, 23);
+            nudLevel.TabIndex = 14;
+            nudLevel.Value = new decimal(new int[] { 2, 0, 0, 0 });
             // 
-            // labelControl9
+            // nudSource
             // 
-            labelControl9.Dock = DockStyle.Top;
-            labelControl9.Location = new Point(47, 0);
-            labelControl9.Margin = new Padding(3, 2, 3, 2);
-            labelControl9.Name = "labelControl9";
-            labelControl9.Size = new Size(120, 16);
-            labelControl9.TabIndex = 7;
-            labelControl9.Text = "Log message Columns";
+            nudSource.Location = new Point(232, 96);
+            nudSource.Name = "nudSource";
+            nudSource.Size = new Size(150, 23);
+            nudSource.TabIndex = 18;
+            nudSource.Value = new decimal(new int[] { 4, 0, 0, 0 });
             // 
-            // splitContainerButtons
+            // nudText
             // 
-            splitContainerButtons.Dock = DockStyle.Left;
-            splitContainerButtons.Location = new Point(0, 0);
-            splitContainerButtons.Name = "splitContainerButtons";
-            splitContainerButtons.Orientation = Orientation.Horizontal;
+            nudText.Location = new Point(232, 67);
+            nudText.Name = "nudText";
+            nudText.Size = new Size(150, 23);
+            nudText.TabIndex = 17;
+            nudText.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
-            // splitContainerButtons.Panel1
+            // label3
             // 
-            splitContainerButtons.Panel1.Controls.Add(sBtnMoveUp);
-            splitContainerButtons.Panel1.Text = "Panel1";
+            label3.AutoSize = true;
+            label3.Location = new Point(10, 125);
+            label3.Name = "label3";
+            label3.Size = new Size(186, 16);
+            label3.TabIndex = 16;
+            label3.Text = "Module/Process Name Column:";
             // 
-            // splitContainerButtons.Panel2
+            // label4
             // 
-            splitContainerButtons.Panel2.Controls.Add(BtnMoveDown);
-            splitContainerButtons.Panel2.Text = "Panel2";
-            splitContainerButtons.Size = new Size(47, 483);
-            splitContainerButtons.SplitterDistance = 238;
-            splitContainerButtons.TabIndex = 1;
+            label4.AutoSize = true;
+            label4.Location = new Point(10, 96);
+            label4.Name = "label4";
+            label4.Size = new Size(99, 16);
+            label4.TabIndex = 15;
+            label4.Text = "Source Column:";
             // 
-            // sBtnMoveUp
+            // nudProcessName
             // 
-            sBtnMoveUp.Dock = DockStyle.Fill;
-            sBtnMoveUp.Image = (Image)resources.GetObject("sBtnMoveUp.Image");
-            sBtnMoveUp.ImageAlign = ContentAlignment.TopCenter;
-            sBtnMoveUp.Location = new Point(0, 0);
-            sBtnMoveUp.Margin = new Padding(3, 2, 3, 2);
-            sBtnMoveUp.Name = "sBtnMoveUp";
-            sBtnMoveUp.Size = new Size(47, 238);
-            sBtnMoveUp.TabIndex = 2;
-            sBtnMoveUp.Text = "Up";
-            sBtnMoveUp.Click += BtnMoveUp_Click;
+            nudProcessName.Location = new Point(232, 125);
+            nudProcessName.Name = "nudProcessName";
+            nudProcessName.Size = new Size(150, 23);
+            nudProcessName.TabIndex = 26;
+            nudProcessName.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
-            // BtnMoveDown
+            // nudLineNumber
             // 
-            BtnMoveDown.Dock = DockStyle.Fill;
-            BtnMoveDown.Image = (Image)resources.GetObject("BtnMoveDown.Image");
-            BtnMoveDown.ImageAlign = ContentAlignment.BottomCenter;
-            BtnMoveDown.Location = new Point(0, 0);
-            BtnMoveDown.Margin = new Padding(3, 2, 3, 2);
-            BtnMoveDown.Name = "BtnMoveDown";
-            BtnMoveDown.Size = new Size(47, 241);
-            BtnMoveDown.TabIndex = 3;
-            BtnMoveDown.Text = "Down";
-            BtnMoveDown.Click += BtnMoveDown_Click;
+            nudLineNumber.Location = new Point(232, 301);
+            nudLineNumber.Name = "nudLineNumber";
+            nudLineNumber.Size = new Size(150, 23);
+            nudLineNumber.TabIndex = 25;
+            nudLineNumber.Value = new decimal(new int[] { 11, 0, 0, 0 });
             // 
-            // lstBoxItems
+            // label5
             // 
-            lstBoxItems.Dock = DockStyle.Fill;
-            lstBoxItems.ItemHeight = 16;
-            lstBoxItems.Location = new Point(0, 16);
-            lstBoxItems.Name = "lstBoxItems";
-            lstBoxItems.Size = new Size(431, 467);
-            lstBoxItems.TabIndex = 2;
+            label5.AutoSize = true;
+            label5.Location = new Point(10, 154);
+            label5.Name = "label5";
+            label5.Size = new Size(118, 16);
+            label5.TabIndex = 24;
+            label5.Text = "Process Id Column:";
             // 
-            // labelControl10
+            // label6
             // 
-            labelControl10.Dock = DockStyle.Top;
-            labelControl10.Location = new Point(0, 0);
-            labelControl10.Margin = new Padding(3, 2, 3, 2);
-            labelControl10.Name = "labelControl10";
-            labelControl10.Size = new Size(431, 16);
-            labelControl10.TabIndex = 8;
-            labelControl10.Text = "Parsed columns.";
+            label6.AutoSize = true;
+            label6.Location = new Point(10, 308);
+            label6.Name = "label6";
+            label6.Size = new Size(131, 16);
+            label6.TabIndex = 23;
+            label6.Text = "Line Number Column:";
+            // 
+            // nudFileName
+            // 
+            nudFileName.Location = new Point(232, 243);
+            nudFileName.Name = "nudFileName";
+            nudFileName.Size = new Size(150, 23);
+            nudFileName.TabIndex = 22;
+            nudFileName.Value = new decimal(new int[] { 9, 0, 0, 0 });
+            // 
+            // nudMethodName
+            // 
+            nudMethodName.Location = new Point(232, 272);
+            nudMethodName.Name = "nudMethodName";
+            nudMethodName.Size = new Size(150, 23);
+            nudMethodName.TabIndex = 21;
+            nudMethodName.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(10, 250);
+            label7.Name = "label7";
+            label7.Size = new Size(116, 16);
+            label7.TabIndex = 20;
+            label7.Text = "File Name Column:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(10, 279);
+            label8.Name = "label8";
+            label8.Size = new Size(138, 16);
+            label8.TabIndex = 19;
+            label8.Text = "Method Name Column:";
+            // 
+            // nudProcessId
+            // 
+            nudProcessId.Location = new Point(232, 154);
+            nudProcessId.Name = "nudProcessId";
+            nudProcessId.Size = new Size(150, 23);
+            nudProcessId.TabIndex = 28;
+            nudProcessId.Value = new decimal(new int[] { 6, 0, 0, 0 });
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(10, 183);
+            label9.Name = "label9";
+            label9.Size = new Size(143, 16);
+            label9.TabIndex = 27;
+            label9.Text = "Machine Name Column:";
+            // 
+            // nudMachineName
+            // 
+            nudMachineName.Location = new Point(232, 183);
+            nudMachineName.Name = "nudMachineName";
+            nudMachineName.Size = new Size(150, 23);
+            nudMachineName.TabIndex = 30;
+            nudMachineName.Value = new decimal(new int[] { 7, 0, 0, 0 });
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(10, 43);
+            label10.Name = "label10";
+            label10.Size = new Size(112, 16);
+            label10.TabIndex = 29;
+            label10.Text = "Log Level Column:";
+            // 
+            // nudUserName
+            // 
+            nudUserName.Location = new Point(232, 212);
+            nudUserName.Name = "nudUserName";
+            nudUserName.Size = new Size(150, 23);
+            nudUserName.TabIndex = 32;
+            nudUserName.Value = new decimal(new int[] { 8, 0, 0, 0 });
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(10, 214);
+            label11.Name = "label11";
+            label11.Size = new Size(122, 16);
+            label11.TabIndex = 31;
+            label11.Text = "User Name Column:";
             // 
             // AnalogyColumnsMatcherUC
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(spltColumns);
+            Controls.Add(nudUserName);
+            Controls.Add(label11);
+            Controls.Add(nudMachineName);
+            Controls.Add(label10);
+            Controls.Add(nudProcessId);
+            Controls.Add(label9);
+            Controls.Add(nudProcessName);
+            Controls.Add(nudLineNumber);
+            Controls.Add(label5);
+            Controls.Add(label6);
+            Controls.Add(nudFileName);
+            Controls.Add(nudMethodName);
+            Controls.Add(label7);
+            Controls.Add(label8);
+            Controls.Add(nudSource);
+            Controls.Add(nudText);
+            Controls.Add(label3);
+            Controls.Add(label4);
+            Controls.Add(nudLevel);
+            Controls.Add(nudDate);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Font = new Font("Tahoma", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "AnalogyColumnsMatcherUC";
             Size = new Size(602, 483);
-            spltColumns.Panel1.ResumeLayout(false);
-            spltColumns.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)spltColumns).EndInit();
-            spltColumns.ResumeLayout(false);
-            splitContainerButtons.Panel1.ResumeLayout(false);
-            splitContainerButtons.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainerButtons).EndInit();
-            splitContainerButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)nudDate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudLevel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudText).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudProcessName).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudLineNumber).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudFileName).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudMethodName).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudProcessId).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudMachineName).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudUserName).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private SplitContainer spltColumns;
-        private ListBox lstBAnalogyColumns;
-        private Label labelControl9;
-        private SplitContainer splitContainerButtons;
-        private Button sBtnMoveUp;
-        private Button BtnMoveDown;
-        private ListBox lstBoxItems;
-        private Label labelControl10;
+        private Label label1;
+        private Label label2;
+        private NumericUpDown nudDate;
+        private NumericUpDown nudLevel;
+        private NumericUpDown nudSource;
+        private NumericUpDown nudText;
+        private Label label3;
+        private Label label4;
+        private NumericUpDown nudProcessName;
+        private NumericUpDown nudLineNumber;
+        private Label label5;
+        private Label label6;
+        private NumericUpDown nudFileName;
+        private NumericUpDown nudMethodName;
+        private Label label7;
+        private Label label8;
+        private NumericUpDown nudProcessId;
+        private Label label9;
+        private NumericUpDown nudMachineName;
+        private Label label10;
+        private NumericUpDown nudUserName;
+        private Label label11;
     }
 }

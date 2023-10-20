@@ -23,7 +23,7 @@ namespace Analogy.LogViewer.NLogProvider
         }
         private void SaveMapping()
         {
-            LogParsersSettings.Configure(txtNLogLayout.Text, txtNLogSeperator.Text,
+            LogParsersSettings.Configure("", txtNLogSeperator.Text,
                 new List<string> { txtNLogExtension.Text }, analogyColumnsMatcherUC1.Mapping);
             LogParsersSettings.Directory = txtbNLogDirectory.Text;
         }
@@ -50,32 +50,6 @@ namespace Analogy.LogViewer.NLogProvider
                         MessageBoxIcon.Error);
                 }
 
-            }
-        }
-
-        private void btnLoadLayout_Click(object sender, EventArgs e)
-        {
-            CheckNLogLayout();
-        }
-
-        private void CheckNLogLayout()
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(txtNLogSeperator.Text))
-                {
-                    return;
-                }
-
-                var items = txtNLogLayout.Text
-                    .Split(txtNLogSeperator.Text.ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
-                    .ToArray();
-                analogyColumnsMatcherUC1.SetColumns(items);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show("Error parsing input: " + exception.Message, "Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
             }
         }
 
@@ -108,11 +82,9 @@ namespace Analogy.LogViewer.NLogProvider
             if (nLogParserSettings.IsConfigured)
             {
                 txtNLogSeperator.Text = nLogParserSettings.Splitter;
-                txtNLogLayout.Text = nLogParserSettings.Layout;
                 txtNLogExtension.Text = string.Join(";", nLogParserSettings.SupportedFilesExtensions);
                 txtbNLogDirectory.Text = nLogParserSettings.Directory;
                 analogyColumnsMatcherUC1.LoadMapping(nLogParserSettings);
-                CheckNLogLayout();
             }
         }
 

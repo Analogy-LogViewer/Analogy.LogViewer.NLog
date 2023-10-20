@@ -20,85 +20,25 @@ namespace Analogy.LogViewer.NLogProvider
             InitializeComponent();
         }
 
-
-        private void BtnMoveUp_Click(object sender, EventArgs e)
-        {
-            if (lstBAnalogyColumns.SelectedIndex <= 0)
-            {
-                return;
-            }
-
-            var selectedIndex = lstBAnalogyColumns.SelectedIndex;
-            var currentValue = lstBAnalogyColumns.Items[selectedIndex];
-            lstBAnalogyColumns.Items[selectedIndex] = lstBAnalogyColumns.Items[selectedIndex - 1];
-            lstBAnalogyColumns.Items[selectedIndex - 1] = currentValue;
-            lstBAnalogyColumns.SelectedIndex = lstBAnalogyColumns.SelectedIndex - 1;
-        }
-
-        private void BtnMoveDown_Click(object sender, EventArgs e)
-        {
-            if (lstBAnalogyColumns.SelectedIndex == lstBAnalogyColumns.Items.Count - 1)
-            {
-                return;
-            }
-
-            var selectedIndex = lstBAnalogyColumns.SelectedIndex;
-            var currentValue = lstBAnalogyColumns.Items[selectedIndex + 1];
-            lstBAnalogyColumns.Items[selectedIndex + 1] = lstBAnalogyColumns.Items[selectedIndex];
-            lstBAnalogyColumns.Items[selectedIndex] = currentValue;
-            lstBAnalogyColumns.SelectedIndex = lstBAnalogyColumns.SelectedIndex + 1;
-        }
-
-        private void lstBAnalogyColumns_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (lstBAnalogyColumns.SelectedIndex > lstBoxItems.Items.Count - 1)
-            {
-                return;
-            }
-
-            lstBoxItems.SelectedIndex = lstBAnalogyColumns.SelectedIndex;
-
-
-        }
-
-        public void SetColumns(string[] columns)
-        {
-            lstBoxItems.Items.Clear();
-            lstBoxItems.Items.AddRange(columns);
-        }
-
         public void LoadMapping(ISplitterLogParserSettings parser)
         {
-            lstBAnalogyColumns.Items.Clear();
-            for (int i = 0; i < 21; i++)
-            {
-                if (parser.Maps.TryGetValue(i, out AnalogyLogMessagePropertyName map))
-                {
-                    lstBAnalogyColumns.Items.Add(map);
-                }
-                else
-                {
-                    lstBAnalogyColumns.Items.Add("__ignore__");
-                }
-            }
-
         }
         private Dictionary<int, AnalogyLogMessagePropertyName> GetMapping()
         {
-            Dictionary<int, AnalogyLogMessagePropertyName> maps =
-                new Dictionary<int, AnalogyLogMessagePropertyName>(lstBAnalogyColumns.Items.Count);
-            for (int i = 0; i < lstBAnalogyColumns.Items.Count; i++)
+            Dictionary<int, AnalogyLogMessagePropertyName> maps = new(11)
             {
-                if (lstBAnalogyColumns.Items[i].ToString()
-                    .Contains("ignore", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    continue;
-                }
-
-                maps.Add(i, (AnalogyLogMessagePropertyName)Enum.Parse(typeof(AnalogyLogMessagePropertyName),
-                    lstBAnalogyColumns.Items[i].ToString()));
-            }
+                { 1, AnalogyLogMessagePropertyName.Date }, 
+                { 2, AnalogyLogMessagePropertyName.Level },
+                { 3, AnalogyLogMessagePropertyName.Text },
+                { 4, AnalogyLogMessagePropertyName.Source },
+                { 5, AnalogyLogMessagePropertyName.Module },
+                { 6, AnalogyLogMessagePropertyName.ProcessId },
+                { 7, AnalogyLogMessagePropertyName.MachineName },
+                { 8, AnalogyLogMessagePropertyName.User },
+                { 9, AnalogyLogMessagePropertyName.FileName },
+                { 10, AnalogyLogMessagePropertyName.MethodName },
+                { 11, AnalogyLogMessagePropertyName.LineNumber },
+            };
 
             return maps;
         }
