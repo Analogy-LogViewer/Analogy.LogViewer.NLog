@@ -23,7 +23,7 @@ namespace Analogy.LogViewer.NLogProvider
         {
             if (string.IsNullOrEmpty(fileName))
             {
-                AnalogyLogMessage empty = new AnalogyLogMessage($"File is null or empty. Aborting.",
+                AnalogyLogMessage empty = new($"File is null or empty. Aborting.",
                     AnalogyLogLevel.Critical, AnalogyLogClass.General, "Analogy", "None")
                 {
                     Source = "Analogy",
@@ -54,7 +54,7 @@ namespace Analogy.LogViewer.NLogProvider
                 messagesHandler.AppendMessage(empty, Utils.GetFileNameAsDataSource(fileName));
                 return new List<AnalogyLogMessage> { empty };
             }
-            List<IAnalogyLogMessage> messages = new List<IAnalogyLogMessage>();
+            List<IAnalogyLogMessage> messages = new();
             try
             {
                 using (var stream = File.OpenRead(fileName))
@@ -90,7 +90,7 @@ namespace Analogy.LogViewer.NLogProvider
             }
             catch (Exception e)
             {
-                AnalogyLogMessage empty = new AnalogyLogMessage($"Error occured processing file {fileName}. Reason: {e.Message}",
+                AnalogyLogMessage empty = new AnalogyLogMessage($"Error occurred processing file {fileName}. Reason: {e.Message}",
                     AnalogyLogLevel.Critical, AnalogyLogClass.General, "Analogy", "None")
                 {
                     Source = "Analogy",

@@ -16,7 +16,7 @@ namespace Analogy.LogViewer.NLogProvider
             new Lazy<UserSettingsManager>(() => new UserSettingsManager());
         public static UserSettingsManager UserSettings { get; set; } = _instance.Value;
         private string NLogFile { get; } = "AnalogyNLogSettings.json";
-        public string FileName => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Analogy.LogViewer", NLogFile);
+        private string FileName => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Analogy.LogViewer", NLogFile);
 
         public ISplitterLogParserSettings LogParserSettings { get; set; }
 
@@ -42,7 +42,7 @@ namespace Analogy.LogViewer.NLogProvider
             {
                 LogParserSettings = new SplitterLogParserSettings();
                 LogParserSettings.Splitter = "|";
-                LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog" };
+                LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog","*.log" };
 
             }
 

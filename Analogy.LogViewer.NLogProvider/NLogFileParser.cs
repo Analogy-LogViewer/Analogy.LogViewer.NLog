@@ -13,7 +13,7 @@ namespace Analogy.LogViewer.NLogProvider
     {
         private readonly ISplitterLogParserSettings _logFileSettings;
         public readonly string[] splitters;
-        public static string[] SplitterValues { get; } = { "#*#" };
+        private static string[] SplitterValues { get; } = { "#*#" };
 
         public NLogFileParser(ISplitterLogParserSettings logFileSettings)
         {
@@ -24,7 +24,7 @@ namespace Analogy.LogViewer.NLogProvider
         public AnalogyLogMessage Parse(string line)
         {
             var items = line.Split(splitters, StringSplitOptions.None).ToList();
-            List<(AnalogyLogMessagePropertyName, string)> map = new List<(AnalogyLogMessagePropertyName, string)>();
+            List<(AnalogyLogMessagePropertyName, string)> map = new();
             for (int i = 0; i < items.Count; i++)
             {
                 var item = items[i];
@@ -33,7 +33,10 @@ namespace Analogy.LogViewer.NLogProvider
                     map.Add((map1, items[i]));
                 }
             }
-            return AnalogyLogMessage.Parse(map);
+            var message = AnalogyLogMessage.Parse(map);
+            message.RawText = line;
+            message.RawTextType = AnalogyRowTextType.PlainText;
+            return message;
         }
     }
 }

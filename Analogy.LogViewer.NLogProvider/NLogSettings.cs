@@ -110,7 +110,7 @@ namespace Analogy.LogViewer.NLogProvider
                 txtNLogSeperator.Text = nLogParserSettings.Splitter;
                 txtNLogLayout.Text = nLogParserSettings.Layout;
                 txtNLogExtension.Text = string.Join(";", nLogParserSettings.SupportedFilesExtensions);
-
+                txtbNLogDirectory.Text = nLogParserSettings.Directory;
                 analogyColumnsMatcherUC1.LoadMapping(nLogParserSettings);
                 CheckNLogLayout();
             }
