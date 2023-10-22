@@ -35,7 +35,7 @@
             txtNLogExtension = new System.Windows.Forms.TextBox();
             label2 = new System.Windows.Forms.Label();
             btnImport = new System.Windows.Forms.Button();
-            analogyColumnsMatcherUC1 = new AnalogyColumnsMatcherUC();
+            _columnsMatcherUc1 = new ColumnsMatcherUC();
             txtbNLogDirectory = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
             btnOpenFolder = new System.Windows.Forms.Button();
@@ -44,7 +44,7 @@
             // btnSave
             // 
             btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            btnSave.Location = new System.Drawing.Point(592, 560);
+            btnSave.Location = new System.Drawing.Point(582, 540);
             btnSave.Name = "btnSave";
             btnSave.Size = new System.Drawing.Size(114, 40);
             btnSave.TabIndex = 1;
@@ -55,7 +55,7 @@
             // btnExportSettings
             // 
             btnExportSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            btnExportSettings.Location = new System.Drawing.Point(473, 560);
+            btnExportSettings.Location = new System.Drawing.Point(463, 540);
             btnExportSettings.Name = "btnExportSettings";
             btnExportSettings.Size = new System.Drawing.Size(114, 40);
             btnExportSettings.TabIndex = 2;
@@ -110,14 +110,14 @@
             btnImport.UseVisualStyleBackColor = true;
             btnImport.Click += btnImport_Click;
             // 
-            // analogyColumnsMatcherUC1
+            // _columnsMatcherUc1
             // 
-            analogyColumnsMatcherUC1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            analogyColumnsMatcherUC1.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            analogyColumnsMatcherUC1.Location = new System.Drawing.Point(0, 120);
-            analogyColumnsMatcherUC1.Name = "analogyColumnsMatcherUC1";
-            analogyColumnsMatcherUC1.Size = new System.Drawing.Size(709, 414);
-            analogyColumnsMatcherUC1.TabIndex = 0;
+            _columnsMatcherUc1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            _columnsMatcherUc1.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            _columnsMatcherUc1.Location = new System.Drawing.Point(0, 120);
+            _columnsMatcherUc1.Name = "_columnsMatcherUc1";
+            _columnsMatcherUc1.Size = new System.Drawing.Size(709, 414);
+            _columnsMatcherUc1.TabIndex = 0;
             // 
             // txtbNLogDirectory
             // 
@@ -161,7 +161,7 @@
             Controls.Add(label1);
             Controls.Add(btnExportSettings);
             Controls.Add(btnSave);
-            Controls.Add(analogyColumnsMatcherUC1);
+            Controls.Add(_columnsMatcherUc1);
             Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             Name = "NLogSettings";
             Size = new System.Drawing.Size(709, 603);
@@ -172,7 +172,7 @@
 
         #endregion
 
-        private AnalogyColumnsMatcherUC analogyColumnsMatcherUC1;
+        private ColumnsMatcherUC _columnsMatcherUc1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExportSettings;
         private System.Windows.Forms.TextBox txtNLogSeperator;

@@ -11,7 +11,7 @@ namespace Analogy.LogViewer.NLogProvider
 {
     public partial class NLogSettings : UserControl
     {
-        private ISplitterLogParserSettings LogParsersSettings => UserSettingsManager.UserSettings.LogParserSettings;
+        private UserSettingsManager Settings => UserSettingsManager.UserSettings;
         public NLogSettings()
         {
             InitializeComponent();
@@ -23,9 +23,11 @@ namespace Analogy.LogViewer.NLogProvider
         }
         private void SaveMapping()
         {
-            LogParsersSettings.Configure("", txtNLogSeperator.Text,
-                new List<string> { txtNLogExtension.Text }, analogyColumnsMatcherUC1.Mapping);
-            LogParsersSettings.Directory = txtbNLogDirectory.Text;
+            Settings.LogParserSettings.Configure("", txtNLogSeperator.Text,
+                new List<string> { txtNLogExtension.Text }, _columnsMatcherUc1.Mapping);
+            Settings.LogParserSettings.Directory = txtbNLogDirectory.Text;
+            Settings.LogParserSettings.IsConfigured = true;
+            Settings.Save();
         }
 
         private void btnExportSettings_Click(object sender, EventArgs e)
@@ -39,7 +41,7 @@ namespace Analogy.LogViewer.NLogProvider
                 SaveMapping();
                 try
                 {
-                    File.WriteAllText(saveFileDialog.FileName, JsonConvert.SerializeObject(LogParsersSettings));
+                    File.WriteAllText(saveFileDialog.FileName, JsonConvert.SerializeObject(Settings));
                     MessageBox.Show("File Saved", @"Export settings", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
 
@@ -84,7 +86,7 @@ namespace Analogy.LogViewer.NLogProvider
                 txtNLogSeperator.Text = nLogParserSettings.Splitter;
                 txtNLogExtension.Text = string.Join(";", nLogParserSettings.SupportedFilesExtensions);
                 txtbNLogDirectory.Text = nLogParserSettings.Directory;
-                analogyColumnsMatcherUC1.LoadMapping(nLogParserSettings);
+                _columnsMatcherUc1.LoadMapping(nLogParserSettings);
             }
         }
 

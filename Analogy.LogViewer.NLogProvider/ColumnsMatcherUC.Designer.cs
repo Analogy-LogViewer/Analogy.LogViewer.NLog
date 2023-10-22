@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Analogy.LogViewer.NLogProvider
 {
-    partial class AnalogyColumnsMatcherUC
+    partial class ColumnsMatcherUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -87,6 +87,7 @@ namespace Analogy.LogViewer.NLogProvider
             // nudDate
             // 
             nudDate.Location = new Point(232, 9);
+            nudDate.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             nudDate.Name = "nudDate";
             nudDate.Size = new Size(150, 23);
             nudDate.TabIndex = 13;
@@ -95,6 +96,7 @@ namespace Analogy.LogViewer.NLogProvider
             // nudLevel
             // 
             nudLevel.Location = new Point(232, 38);
+            nudLevel.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             nudLevel.Name = "nudLevel";
             nudLevel.Size = new Size(150, 23);
             nudLevel.TabIndex = 14;
@@ -103,6 +105,7 @@ namespace Analogy.LogViewer.NLogProvider
             // nudSource
             // 
             nudSource.Location = new Point(232, 96);
+            nudSource.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             nudSource.Name = "nudSource";
             nudSource.Size = new Size(150, 23);
             nudSource.TabIndex = 18;
@@ -111,6 +114,7 @@ namespace Analogy.LogViewer.NLogProvider
             // nudText
             // 
             nudText.Location = new Point(232, 67);
+            nudText.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             nudText.Name = "nudText";
             nudText.Size = new Size(150, 23);
             nudText.TabIndex = 17;
@@ -137,6 +141,7 @@ namespace Analogy.LogViewer.NLogProvider
             // nudProcessName
             // 
             nudProcessName.Location = new Point(232, 125);
+            nudProcessName.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             nudProcessName.Name = "nudProcessName";
             nudProcessName.Size = new Size(150, 23);
             nudProcessName.TabIndex = 26;
@@ -145,6 +150,7 @@ namespace Analogy.LogViewer.NLogProvider
             // nudLineNumber
             // 
             nudLineNumber.Location = new Point(232, 301);
+            nudLineNumber.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             nudLineNumber.Name = "nudLineNumber";
             nudLineNumber.Size = new Size(150, 23);
             nudLineNumber.TabIndex = 25;
@@ -171,6 +177,7 @@ namespace Analogy.LogViewer.NLogProvider
             // nudFileName
             // 
             nudFileName.Location = new Point(232, 243);
+            nudFileName.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             nudFileName.Name = "nudFileName";
             nudFileName.Size = new Size(150, 23);
             nudFileName.TabIndex = 22;
@@ -179,6 +186,7 @@ namespace Analogy.LogViewer.NLogProvider
             // nudMethodName
             // 
             nudMethodName.Location = new Point(232, 272);
+            nudMethodName.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             nudMethodName.Name = "nudMethodName";
             nudMethodName.Size = new Size(150, 23);
             nudMethodName.TabIndex = 21;
@@ -205,6 +213,7 @@ namespace Analogy.LogViewer.NLogProvider
             // nudProcessId
             // 
             nudProcessId.Location = new Point(232, 154);
+            nudProcessId.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             nudProcessId.Name = "nudProcessId";
             nudProcessId.Size = new Size(150, 23);
             nudProcessId.TabIndex = 28;
@@ -222,6 +231,7 @@ namespace Analogy.LogViewer.NLogProvider
             // nudMachineName
             // 
             nudMachineName.Location = new Point(232, 183);
+            nudMachineName.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             nudMachineName.Name = "nudMachineName";
             nudMachineName.Size = new Size(150, 23);
             nudMachineName.TabIndex = 30;
@@ -239,6 +249,7 @@ namespace Analogy.LogViewer.NLogProvider
             // nudUserName
             // 
             nudUserName.Location = new Point(232, 212);
+            nudUserName.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             nudUserName.Name = "nudUserName";
             nudUserName.Size = new Size(150, 23);
             nudUserName.TabIndex = 32;
@@ -253,7 +264,7 @@ namespace Analogy.LogViewer.NLogProvider
             label11.TabIndex = 31;
             label11.Text = "User Name Column:";
             // 
-            // AnalogyColumnsMatcherUC
+            // ColumnsMatcherUC
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -280,8 +291,8 @@ namespace Analogy.LogViewer.NLogProvider
             Controls.Add(label2);
             Controls.Add(label1);
             Font = new Font("Tahoma", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            Name = "AnalogyColumnsMatcherUC";
-            Size = new Size(602, 483);
+            Name = "ColumnsMatcherUC";
+            Size = new Size(402, 340);
             ((System.ComponentModel.ISupportInitialize)nudDate).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudLevel).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudSource).EndInit();

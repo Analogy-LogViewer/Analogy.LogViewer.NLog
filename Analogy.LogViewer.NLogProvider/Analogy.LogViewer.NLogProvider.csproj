@@ -62,9 +62,9 @@
 		</PackageReference>
 	</ItemGroup>
 	<ItemGroup>
-		<Compile Update="AnalogyColumnsMatcherUC.cs" />
-		<Compile Update="AnalogyColumnsMatcherUC.Designer.cs">
-			<DependentUpon>AnalogyColumnsMatcherUC.cs</DependentUpon>
+		<Compile Update="ColumnsMatcherUC.cs" />
+		<Compile Update="ColumnsMatcherUC.Designer.cs">
+			<DependentUpon>ColumnsMatcherUC.cs</DependentUpon>
 		</Compile>
 		<Compile Update="NLogSettings.cs" />
 		<Compile Update="NLogSettings.Designer.cs">
@@ -78,8 +78,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Update="AnalogyColumnsMatcherUC.resx">
-			<DependentUpon>AnalogyColumnsMatcherUC.cs</DependentUpon>
+		<EmbeddedResource Update="ColumnsMatcherUC.resx">
+			<DependentUpon>ColumnsMatcherUC.cs</DependentUpon>
 		</EmbeddedResource>
 		<EmbeddedResource Update="NLogSettings.resx">
 			<DependentUpon>NLogSettings.cs</DependentUpon>
