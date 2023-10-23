@@ -15,8 +15,8 @@ namespace Analogy.LogViewer.NLogProvider
 {
     public class NLogFileLoader
     {
-        private ISplitterLogParserSettings logFileSettings;
-        public NLogFileLoader(ISplitterLogParserSettings logFileSettings)
+        private LogParserSettings logFileSettings;
+        public NLogFileLoader(LogParserSettings logFileSettings)
         {
             this.logFileSettings = logFileSettings;
         }
@@ -56,133 +56,151 @@ namespace Analogy.LogViewer.NLogProvider
                 {
                     Delimiter = logFileSettings.Splitter,
                     MissingFieldFound = (args => { }),
-            };
-            using var reader = new StreamReader(fileName);
-            using var csv = new CsvReader(reader, config);
-            AnalogyLogMessageRowRecordMapper mapper = new(logFileSettings);
-            csv.Context.RegisterClassMap(mapper);
-            foreach (var record in csv.GetRecords<ElasticRowRecord>())
-            {
-                try
+                };
+                using var reader = new StreamReader(fileName);
+                using var csv = new CsvReader(reader, config);
+                AnalogyLogMessageRowRecordMapper mapper = new(logFileSettings);
+                csv.Context.RegisterClassMap(mapper);
+                IAnalogyLogMessage? previousEntry = null;
+                foreach (var record in csv.GetRecords<ElasticRowRecord>())
                 {
-                    var entry = ParseMessage(record);
-                    entry.RawText = csv.Parser.RawRecord;
-                    messagesHandler.AppendMessage(entry, fileName);
-                    messages.Add(entry);
+                    try
+                    {
+                        IAnalogyLogMessage entry = ParseMessage(record);
+                        entry.RawText = csv.Parser.RawRecord;
+                        if (string.IsNullOrEmpty(entry.Text) && previousEntry is not null)
+                        {
+                            previousEntry.Text += Environment.NewLine + entry.RawText;
+                        }
+                        else
+                        {
+                            if (previousEntry is not null)
+                            {
+                                messagesHandler.AppendMessage(previousEntry, fileName);
+                                messages.Add(previousEntry);
+                            }  
+                            previousEntry = entry;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        AnalogyErrorMessage err = new AnalogyErrorMessage("Error Decrypting: " + e);
+                        messagesHandler.AppendMessage(err, "Analogy");
+                        messages.Add(err);
+                    }
                 }
-                catch (Exception e)
+                if (previousEntry is not null)
                 {
-                    AnalogyErrorMessage err = new AnalogyErrorMessage("Error Decrypting: " + e);
-                    messagesHandler.AppendMessage(err, "Analogy");
-                    messages.Add(err);
+                    messagesHandler.AppendMessage(previousEntry, fileName);
+                    messages.Add(previousEntry);
                 }
             }
-        }
             catch (Exception e)
             {
                 AnalogyErrorMessage err = new AnalogyErrorMessage("Error Decrypting: " + e);
-        messagesHandler.AppendMessage(err, "Analogy");
+                messagesHandler.AppendMessage(err, "Analogy");
                 messages.Add(err);
             }
             return messages;
         }
 
-private IAnalogyLogMessage ParseMessage(ElasticRowRecord record)
-{
-    var m = new AnalogyLogMessage()
-    {
-        Text = record.Text,
-        MachineName = record.MachineName,
-        User = record.User,
-        Module = record.ProcessName,
-        Source = "",
-        ThreadId = int.TryParse(record.ThreadId, NumberStyles.Any, new CultureInfo("en-US"), out var ti) ? ti : -1,
-        ProcessId = int.TryParse(record.ProcessId, NumberStyles.Any, new CultureInfo("en-US"), out var pi) ? pi : -1,
-        Level = AnalogyLogMessage.ParseLogLevelFromString(record.LogLevel),
-        Date = ParseDateTime(record.Timestamp),
-        LineNumber = long.TryParse(record.LineNumber, NumberStyles.Any, new CultureInfo("en-US"), out var ln) ? ln : -1,
-        MethodName = record.MethodName,
-        RawTextType = AnalogyRowTextType.None,
-    };
-    return m;
-}
+        private IAnalogyLogMessage ParseMessage(ElasticRowRecord record)
+        {
+            var m = new AnalogyLogMessage()
+            {
+                Text = record.Text,
+                MachineName = record.MachineName,
+                User = record.User,
+                Module = record.ProcessName,
+                Source = "",
+                ThreadId = int.TryParse(record.ThreadId, NumberStyles.Any, new CultureInfo("en-US"), out var ti) ? ti : -1,
+                ProcessId = int.TryParse(record.ProcessId, NumberStyles.Any, new CultureInfo("en-US"), out var pi) ? pi : -1,
+                Level = AnalogyLogMessage.ParseLogLevelFromString(record.LogLevel),
+                Date = ParseDateTime(record.Timestamp),
+                LineNumber = long.TryParse(record.LineNumber, NumberStyles.Any, new CultureInfo("en-US"), out var ln) ? ln : -1,
+                MethodName = record.MethodName,
+                RawTextType = AnalogyRowTextType.None,
+            };
+            return m;
+        }
 
-private DateTime ParseDateTime(string timestamp)
-{
-    if (DateTime.TryParseExact(timestamp, "MMM dd, yyyy @ HH:mm:ss.fff", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dt))
-    {
-        return dt;
-    }
-    if (DateTime.TryParseExact(timestamp, "MMM d, yyyy @ HH:mm:ss.fff", CultureInfo.InvariantCulture, DateTimeStyles.None, out dt))
-    {
-        return dt;
-    }
-    return DateTime.Now;
-}
+        private DateTime ParseDateTime(string timestamp)
+        {
+            if (DateTime.TryParse(timestamp,out var time))
+            {
+                return time;
+            }
+
+            if (DateTime.TryParseExact(timestamp, logFileSettings.DateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out var formatted))
+            {
+                return formatted;
+            }
+            return DateTime.Now;
+        }
     }
 
     public class ElasticRowRecord
-{
-    public string Timestamp { get; set; }
-    public string MachineName { get; set; }
-    public string LogLevel { get; set; }
-    public string Text { get; set; }
-    public string User { get; set; }
-    public string ThreadId { get; set; }
-    public string ProcessId { get; set; }
-    public string ProcessName { get; set; }
-    public string MethodName { get; set; }
-    public string LineNumber { get; set; }
-    public string FileName { get; set; }
-}
-public sealed class AnalogyLogMessageRowRecordMapper : ClassMap<ElasticRowRecord>
-{
-    public AnalogyLogMessageRowRecordMapper(ISplitterLogParserSettings logFileSettings)
     {
-        if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.Date))
+        public string Timestamp { get; set; }
+        public string MachineName { get; set; }
+        public string LogLevel { get; set; }
+        public string Text { get; set; }
+        public string User { get; set; }
+        public string ThreadId { get; set; }
+        public string ProcessId { get; set; }
+        public string ProcessName { get; set; }
+        public string MethodName { get; set; }
+        public string LineNumber { get; set; }
+        public string FileName { get; set; }
+    }
+    public sealed class AnalogyLogMessageRowRecordMapper : ClassMap<ElasticRowRecord>
+    {
+        public AnalogyLogMessageRowRecordMapper(ISplitterLogParserSettings logFileSettings)
         {
-            Map(m => m.Timestamp).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.Date).Key);
-        }
-        if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.MachineName))
-        {
-            Map(m => m.MachineName).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.MachineName).Key);
-        }
-        if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.Level))
-        {
-            Map(m => m.LogLevel).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.Level).Key);
-        }
-        if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.Text))
-        {
-            Map(m => m.Text).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.Text).Key);
-        }
-        if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.User))
-        {
-            Map(m => m.User).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.User).Key);
-        }
-        if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.ThreadId))
-        {
-            Map(m => m.ThreadId).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.ThreadId).Key);
-        }
-        if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.ProcessId))
-        {
-            Map(m => m.ProcessId).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.ProcessId).Key);
-        }
-        if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.Module))
-        {
-            Map(m => m.ProcessName).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.Module).Key);
-        }
-        if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.LineNumber))
-        {
-            Map(m => m.LineNumber).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.LineNumber).Key);
-        }
-        if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.MethodName))
-        {
-            Map(m => m.MethodName).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.MethodName).Key);
-        }
-        if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.FileName))
-        {
-            Map(m => m.FileName).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.FileName).Key);
+            if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.Date))
+            {
+                Map(m => m.Timestamp).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.Date).Key);
+            }
+            if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.MachineName))
+            {
+                Map(m => m.MachineName).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.MachineName).Key);
+            }
+            if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.Level))
+            {
+                Map(m => m.LogLevel).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.Level).Key);
+            }
+            if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.Text))
+            {
+                Map(m => m.Text).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.Text).Key);
+            }
+            if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.User))
+            {
+                Map(m => m.User).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.User).Key);
+            }
+            if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.ThreadId))
+            {
+                Map(m => m.ThreadId).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.ThreadId).Key);
+            }
+            if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.ProcessId))
+            {
+                Map(m => m.ProcessId).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.ProcessId).Key);
+            }
+            if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.Module))
+            {
+                Map(m => m.ProcessName).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.Module).Key);
+            }
+            if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.LineNumber))
+            {
+                Map(m => m.LineNumber).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.LineNumber).Key);
+            }
+            if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.MethodName))
+            {
+                Map(m => m.MethodName).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.MethodName).Key);
+            }
+            if (logFileSettings.Maps.ContainsValue(AnalogyLogMessagePropertyName.FileName))
+            {
+                Map(m => m.FileName).Optional().Index(logFileSettings.Maps.First(f => f.Value == AnalogyLogMessagePropertyName.FileName).Key);
+            }
         }
     }
-}
 }

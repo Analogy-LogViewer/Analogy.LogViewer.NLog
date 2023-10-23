@@ -16,31 +16,32 @@ namespace Analogy.LogViewer.NLogProvider
             new Lazy<UserSettingsManager>(() => new UserSettingsManager());
         public static UserSettingsManager UserSettings { get; set; } = _instance.Value;
         private string NLogFile { get; } = "AnalogyNLogSettings.json";
-        private string FileName => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Analogy.LogViewer", NLogFile);
+        private string FileName => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Analogy Log Viewer", NLogFile);
 
-        public ISplitterLogParserSettings LogParserSettings { get; set; }
+        public LogParserSettings LogParserSettings { get; set; }
 
 
         public UserSettingsManager()
         {
+            Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Analogy Log Viewer"));
             if (File.Exists(FileName))
             {
                 try
                 {
                     string data = File.ReadAllText(FileName);
-                    LogParserSettings = JsonConvert.DeserializeObject<SplitterLogParserSettings>(data);
+                    LogParserSettings = JsonConvert.DeserializeObject<LogParserSettings>(data);
                 }
                 catch (Exception ex)
                 {
                     LogManager.Instance.LogError(ex, "Error loading user setting file {message}", ex.Message);
-                    LogParserSettings = new SplitterLogParserSettings();
+                    LogParserSettings = new LogParserSettings();
                     LogParserSettings.Splitter = "|";
                     LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog" };
                 }
             }
             else
             {
-                LogParserSettings = new SplitterLogParserSettings();
+                LogParserSettings = new LogParserSettings();
                 LogParserSettings.Splitter = "|";
                 LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog","*.log" };
 
@@ -58,8 +59,6 @@ namespace Analogy.LogViewer.NLogProvider
             {
                 LogManager.Instance.LogError(e, "Error saving settings: " + e.Message);
             }
-
-
         }
     }
 }

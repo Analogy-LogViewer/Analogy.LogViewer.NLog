@@ -26,6 +26,7 @@ namespace Analogy.LogViewer.NLogProvider
             Settings.LogParserSettings.Configure("", txtNLogSeperator.Text,
                 new List<string> { txtNLogExtension.Text }, _columnsMatcherUc1.Mapping);
             Settings.LogParserSettings.Directory = txtbNLogDirectory.Text;
+            Settings.LogParserSettings.DateTimeFormat = txtDateTimeFormat.Text;
             Settings.LogParserSettings.IsConfigured = true;
             Settings.Save();
         }
@@ -55,38 +56,15 @@ namespace Analogy.LogViewer.NLogProvider
             }
         }
 
-        private void btnImport_Click(object sender, EventArgs e)
+        private void LoadNLogSettings(LogParserSettings logParserSettings)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Analogy NLog Settings (*.nlogsettings)|*.nlogsettings";
-            openFileDialog1.Title = @"Import NLog settings";
-            openFileDialog1.Multiselect = true;
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (logParserSettings.IsConfigured)
             {
-                try
-                {
-                    var json = File.ReadAllText(openFileDialog1.FileName);
-                    SplitterLogParserSettings nlog = JsonConvert.DeserializeObject<SplitterLogParserSettings>(json);
-                    LoadNLogSettings(nlog);
-                    MessageBox.Show("File Imported. Save settings if desired", @"Import settings", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error Import: " + ex.Message, @"Error Import file", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
-            }
-        }
-        private void LoadNLogSettings(ISplitterLogParserSettings nLogParserSettings)
-        {
-            if (nLogParserSettings.IsConfigured)
-            {
-                txtNLogSeperator.Text = nLogParserSettings.Splitter;
-                txtNLogExtension.Text = string.Join(";", nLogParserSettings.SupportedFilesExtensions);
-                txtbNLogDirectory.Text = nLogParserSettings.Directory;
-                _columnsMatcherUc1.LoadMapping(nLogParserSettings);
+                txtNLogSeperator.Text = logParserSettings.Splitter;
+                txtNLogExtension.Text = string.Join(";", logParserSettings.SupportedFilesExtensions);
+                txtbNLogDirectory.Text = logParserSettings.Directory;
+                txtDateTimeFormat.Text = logParserSettings.DateTimeFormat;
+                _columnsMatcherUc1.LoadMapping(logParserSettings);
             }
         }
 

@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             btnSave = new System.Windows.Forms.Button();
-            btnExportSettings = new System.Windows.Forms.Button();
             txtNLogSeperator = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             txtNLogExtension = new System.Windows.Forms.TextBox();
             label2 = new System.Windows.Forms.Label();
-            btnImport = new System.Windows.Forms.Button();
             _columnsMatcherUc1 = new ColumnsMatcherUC();
             txtbNLogDirectory = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
             btnOpenFolder = new System.Windows.Forms.Button();
+            txtDateTimeFormat = new System.Windows.Forms.TextBox();
+            lblTimeFormat = new System.Windows.Forms.Label();
             SuspendLayout();
             // 
             // btnSave
             // 
             btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            btnSave.Location = new System.Drawing.Point(582, 540);
+            btnSave.Location = new System.Drawing.Point(592, 560);
             btnSave.Name = "btnSave";
             btnSave.Size = new System.Drawing.Size(114, 40);
             btnSave.TabIndex = 1;
@@ -52,23 +52,12 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
-            // btnExportSettings
-            // 
-            btnExportSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            btnExportSettings.Location = new System.Drawing.Point(463, 540);
-            btnExportSettings.Name = "btnExportSettings";
-            btnExportSettings.Size = new System.Drawing.Size(114, 40);
-            btnExportSettings.TabIndex = 2;
-            btnExportSettings.Text = "Export Settings";
-            btnExportSettings.UseVisualStyleBackColor = true;
-            btnExportSettings.Click += btnExportSettings_Click;
-            // 
             // txtNLogSeperator
             // 
             txtNLogSeperator.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtNLogSeperator.Location = new System.Drawing.Point(172, 8);
+            txtNLogSeperator.Location = new System.Drawing.Point(230, 8);
             txtNLogSeperator.Name = "txtNLogSeperator";
-            txtNLogSeperator.Size = new System.Drawing.Size(416, 23);
+            txtNLogSeperator.Size = new System.Drawing.Size(466, 23);
             txtNLogSeperator.TabIndex = 7;
             txtNLogSeperator.Text = "|";
             // 
@@ -84,31 +73,20 @@
             // txtNLogExtension
             // 
             txtNLogExtension.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtNLogExtension.Location = new System.Drawing.Point(172, 60);
+            txtNLogExtension.Location = new System.Drawing.Point(230, 60);
             txtNLogExtension.Name = "txtNLogExtension";
-            txtNLogExtension.Size = new System.Drawing.Size(416, 23);
+            txtNLogExtension.Size = new System.Drawing.Size(466, 23);
             txtNLogExtension.TabIndex = 9;
             txtNLogExtension.Text = "*.Nlog";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(3, 62);
+            label2.Location = new System.Drawing.Point(4, 60);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(122, 16);
             label2.TabIndex = 8;
             label2.Text = "NLog File Extension:";
-            // 
-            // btnImport
-            // 
-            btnImport.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnImport.Location = new System.Drawing.Point(592, 6);
-            btnImport.Name = "btnImport";
-            btnImport.Size = new System.Drawing.Size(114, 25);
-            btnImport.TabIndex = 10;
-            btnImport.Text = "Import settings";
-            btnImport.UseVisualStyleBackColor = true;
-            btnImport.Click += btnImport_Click;
             // 
             // _columnsMatcherUc1
             // 
@@ -122,15 +100,15 @@
             // txtbNLogDirectory
             // 
             txtbNLogDirectory.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtbNLogDirectory.Location = new System.Drawing.Point(172, 33);
+            txtbNLogDirectory.Location = new System.Drawing.Point(230, 33);
             txtbNLogDirectory.Name = "txtbNLogDirectory";
-            txtbNLogDirectory.Size = new System.Drawing.Size(381, 23);
+            txtbNLogDirectory.Size = new System.Drawing.Size(431, 23);
             txtbNLogDirectory.TabIndex = 12;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(3, 65);
+            label3.Location = new System.Drawing.Point(3, 36);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(84, 16);
             label3.TabIndex = 11;
@@ -139,7 +117,7 @@
             // btnOpenFolder
             // 
             btnOpenFolder.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnOpenFolder.Location = new System.Drawing.Point(559, 31);
+            btnOpenFolder.Location = new System.Drawing.Point(667, 31);
             btnOpenFolder.Name = "btnOpenFolder";
             btnOpenFolder.Size = new System.Drawing.Size(28, 25);
             btnOpenFolder.TabIndex = 13;
@@ -147,19 +125,37 @@
             btnOpenFolder.UseVisualStyleBackColor = true;
             btnOpenFolder.Click += btnOpenFolder_Click;
             // 
+            // txtDateTimeFormat
+            // 
+            txtDateTimeFormat.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            txtDateTimeFormat.Location = new System.Drawing.Point(230, 91);
+            txtDateTimeFormat.Name = "txtDateTimeFormat";
+            txtDateTimeFormat.Size = new System.Drawing.Size(466, 23);
+            txtDateTimeFormat.TabIndex = 15;
+            txtDateTimeFormat.Text = "MMM dd, yyyy HH:mm:ss.fff";
+            // 
+            // lblTimeFormat
+            // 
+            lblTimeFormat.AutoSize = true;
+            lblTimeFormat.Location = new System.Drawing.Point(4, 94);
+            lblTimeFormat.Name = "lblTimeFormat";
+            lblTimeFormat.Size = new System.Drawing.Size(174, 16);
+            lblTimeFormat.TabIndex = 14;
+            lblTimeFormat.Text = "Date Time format (Optional):";
+            // 
             // NLogSettings
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(txtDateTimeFormat);
+            Controls.Add(lblTimeFormat);
             Controls.Add(btnOpenFolder);
             Controls.Add(txtbNLogDirectory);
             Controls.Add(label3);
-            Controls.Add(btnImport);
             Controls.Add(txtNLogExtension);
             Controls.Add(label2);
             Controls.Add(txtNLogSeperator);
             Controls.Add(label1);
-            Controls.Add(btnExportSettings);
             Controls.Add(btnSave);
             Controls.Add(_columnsMatcherUc1);
             Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -174,14 +170,14 @@
 
         private ColumnsMatcherUC _columnsMatcherUc1;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnExportSettings;
         private System.Windows.Forms.TextBox txtNLogSeperator;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNLogExtension;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.TextBox txtbNLogDirectory;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnOpenFolder;
+        private System.Windows.Forms.TextBox txtDateTimeFormat;
+        private System.Windows.Forms.Label lblTimeFormat;
     }
 }
