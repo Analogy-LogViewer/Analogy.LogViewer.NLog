@@ -50,19 +50,18 @@ namespace Analogy.LogViewer.NLogProvider
         {
             Dictionary<int, AnalogyLogMessagePropertyName> maps = new(11)
             {
-                { decimal.ToInt32(nudDate.Value), AnalogyLogMessagePropertyName.Date },
-                {  decimal.ToInt32(nudLevel.Value), AnalogyLogMessagePropertyName.Level },
-                {  decimal.ToInt32(nudText.Value), AnalogyLogMessagePropertyName.Text },
-                {  decimal.ToInt32(nudSource.Value), AnalogyLogMessagePropertyName.Source },
-                {  decimal.ToInt32(nudProcessName.Value), AnalogyLogMessagePropertyName.Module },
-                {  decimal.ToInt32(nudProcessId.Value), AnalogyLogMessagePropertyName.ProcessId },
-                {  decimal.ToInt32(nudMachineName.Value), AnalogyLogMessagePropertyName.MachineName },
-                {  decimal.ToInt32(nudUserName.Value), AnalogyLogMessagePropertyName.User },
-                {  decimal.ToInt32(nudFileName.Value), AnalogyLogMessagePropertyName.FileName },
-                {  decimal.ToInt32(nudMethodName.Value), AnalogyLogMessagePropertyName.MethodName },
-                {  decimal.ToInt32(nudLineNumber.Value), AnalogyLogMessagePropertyName.LineNumber },
+                [decimal.ToInt32(nudDate.Value)] = AnalogyLogMessagePropertyName.Date,
+                [decimal.ToInt32(nudLevel.Value)] = AnalogyLogMessagePropertyName.Level,
+                [decimal.ToInt32(nudText.Value)] = AnalogyLogMessagePropertyName.Text,
+                [decimal.ToInt32(nudSource.Value)] = AnalogyLogMessagePropertyName.Source,
+                [decimal.ToInt32(nudProcessName.Value)] = AnalogyLogMessagePropertyName.Module,
+                [decimal.ToInt32(nudProcessId.Value)] = AnalogyLogMessagePropertyName.ProcessId,
+                [decimal.ToInt32(nudMachineName.Value)] = AnalogyLogMessagePropertyName.MachineName,
+                [decimal.ToInt32(nudUserName.Value)] = AnalogyLogMessagePropertyName.User,
+                [decimal.ToInt32(nudFileName.Value)] = AnalogyLogMessagePropertyName.FileName,
+                [decimal.ToInt32(nudMethodName.Value)] = AnalogyLogMessagePropertyName.MethodName,
+                [decimal.ToInt32(nudLineNumber.Value)] = AnalogyLogMessagePropertyName.LineNumber
             };
-
             return maps;
         }
     }
