@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace Analogy.LogViewer.NLogProvider
 {
-
     public class PrimaryFactory : Template.PrimaryFactory
     {
         public static Guid Id { get; } = new Guid("33CBFA00-DA3E-4F9F-B5A1-BE978FD09D57");
@@ -22,8 +21,6 @@ namespace Analogy.LogViewer.NLogProvider
         public override string About { get; set; } = "Analogy NLogs Parser";
         public override Image? SmallImage { get; set; } = Resources.nlog_icon_16x16;
         public override Image? LargeImage { get; set; } = Resources.nlog_icon_32x32;
-
-
     }
 
     public class AnalogyNLogDataProviderFactory : Template.DataProvidersFactory
@@ -42,7 +39,6 @@ namespace Analogy.LogViewer.NLogProvider
 
     public class AnalogyNLogSettings : Template.TemplateUserSettingsFactory
     {
-
         public override  Guid Id { get; set; } = new Guid("8D24EC70-60C0-4823-BE9C-F4A59303FFB3");
         public override Guid FactoryId { get; set; } = PrimaryFactory.Id;
         public override string Title { get; set; } = "NLog Settings";
@@ -60,6 +56,5 @@ namespace Analogy.LogViewer.NLogProvider
             UserSettingsManager.UserSettings.Save();
             return Task.CompletedTask;
         }
-
     }
 }

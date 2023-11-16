@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Analogy.Interfaces;
-using Analogy.Interfaces.DataTypes;
 
 namespace Analogy.LogViewer.NLogProvider
 {
@@ -60,7 +60,7 @@ namespace Analogy.LogViewer.NLogProvider
                 [decimal.ToInt32(nudUserName.Value)] = AnalogyLogMessagePropertyName.User,
                 [decimal.ToInt32(nudFileName.Value)] = AnalogyLogMessagePropertyName.FileName,
                 [decimal.ToInt32(nudMethodName.Value)] = AnalogyLogMessagePropertyName.MethodName,
-                [decimal.ToInt32(nudLineNumber.Value)] = AnalogyLogMessagePropertyName.LineNumber
+                [decimal.ToInt32(nudLineNumber.Value)] = AnalogyLogMessagePropertyName.LineNumber,
             };
             return maps;
         }

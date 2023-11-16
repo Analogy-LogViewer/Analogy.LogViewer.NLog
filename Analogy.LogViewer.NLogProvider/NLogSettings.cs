@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Analogy.Interfaces;
-using Analogy.Interfaces.DataTypes;
-using Newtonsoft.Json;
 
 namespace Analogy.LogViewer.NLogProvider
 {
@@ -45,14 +45,12 @@ namespace Analogy.LogViewer.NLogProvider
                     File.WriteAllText(saveFileDialog.FileName, JsonConvert.SerializeObject(Settings));
                     MessageBox.Show("File Saved", @"Export settings", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error Export: " + ex.Message, @"Error Saving file", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
-
             }
         }
 
@@ -77,7 +75,6 @@ namespace Analogy.LogViewer.NLogProvider
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
                     txtbNLogDirectory.Text = fbd.SelectedPath;
-
                 }
             }
         }

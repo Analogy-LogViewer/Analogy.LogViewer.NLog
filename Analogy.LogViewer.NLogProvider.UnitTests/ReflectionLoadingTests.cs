@@ -1,11 +1,11 @@
-﻿using Analogy.Interfaces.Factories;
+﻿using Analogy.Interfaces;
+using Analogy.Interfaces.Factories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Analogy.Interfaces;
 
 namespace Analogy.LogViewer.NLogProvider.UnitTests
 {
@@ -43,7 +43,6 @@ namespace Analogy.LogViewer.NLogProvider.UnitTests
                                 //if no exception in init then add to list
                                 factories.Add(factory);
                                 assemblies.Add((factory, assembly));
-
                             }
 
                             if (aType.GetInterface(nameof(IAnalogyDataProviderSettings)) != null)
@@ -61,7 +60,6 @@ namespace Analogy.LogViewer.NLogProvider.UnitTests
                         {
                             Assert.Fail("Error Loading: " + e);
                         }
-
                     }
                 }
                 catch (ReflectionTypeLoadException ex)
@@ -77,6 +75,5 @@ namespace Analogy.LogViewer.NLogProvider.UnitTests
             Assert.IsTrue(dataProviderSettings.Count == 1);
             Assert.IsTrue(assemblies.Count == 1);
         }
-
     }
 }

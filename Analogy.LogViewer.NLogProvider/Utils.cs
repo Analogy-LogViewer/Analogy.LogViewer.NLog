@@ -13,7 +13,6 @@ namespace Analogy.LogViewer.NLogProvider
         {
             string file = Path.GetFileName(fileName);
             return fileName.Equals(file) ? fileName : $"{file} ({fileName})";
-
         }
     }
     public static class GeneralExtensionMethods

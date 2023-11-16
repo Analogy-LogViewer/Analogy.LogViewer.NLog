@@ -49,9 +49,7 @@ namespace Analogy.LogViewer.NLogProvider
             }
 
             return new List<AnalogyLogMessage>(0);
-
         }
-
 
         public override bool CanOpenFile(string fileName) => UserSettingsManager.UserSettings.LogParserSettings.CanOpenFile(fileName);
 

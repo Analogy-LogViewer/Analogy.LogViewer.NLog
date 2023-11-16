@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
+using CsvHelper;
+using CsvHelper.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -6,10 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Analogy.Interfaces;
-using Analogy.Interfaces.DataTypes;
-using CsvHelper.Configuration;
-using CsvHelper;
 
 namespace Analogy.LogViewer.NLogProvider
 {
@@ -30,7 +30,7 @@ namespace Analogy.LogViewer.NLogProvider
                     AnalogyLogLevel.Critical, AnalogyLogClass.General, "Analogy", "None")
                 {
                     Source = "Analogy",
-                    Module = System.Diagnostics.Process.GetCurrentProcess().ProcessName
+                    Module = System.Diagnostics.Process.GetCurrentProcess().ProcessName,
                 };
                 messagesHandler.AppendMessage(empty, Utils.GetFileNameAsDataSource(fileName));
                 return new List<AnalogyLogMessage> { empty };
@@ -43,7 +43,7 @@ namespace Analogy.LogViewer.NLogProvider
                     AnalogyLogLevel.Critical, AnalogyLogClass.General, "Analogy", "None")
                 {
                     Source = "Analogy",
-                    Module = System.Diagnostics.Process.GetCurrentProcess().ProcessName
+                    Module = System.Diagnostics.Process.GetCurrentProcess().ProcessName,
                 };
                 messagesHandler.AppendMessage(empty, Utils.GetFileNameAsDataSource(fileName));
                 return new List<AnalogyLogMessage> { empty };
@@ -126,7 +126,7 @@ namespace Analogy.LogViewer.NLogProvider
 
         private DateTime ParseDateTime(string timestamp)
         {
-            if (DateTime.TryParse(timestamp,out var time))
+            if (DateTime.TryParse(timestamp, out var time))
             {
                 return time;
             }

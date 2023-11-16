@@ -1,17 +1,16 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
+using Analogy.LogViewer.Template.Managers;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Analogy.LogViewer.Template.Managers;
-using Microsoft.Extensions.Logging;
 
 namespace Analogy.LogViewer.NLogProvider
 {
     public class UserSettingsManager
     {
-
         private static readonly Lazy<UserSettingsManager> _instance =
             new Lazy<UserSettingsManager>(() => new UserSettingsManager());
         public static UserSettingsManager UserSettings { get; set; } = _instance.Value;
@@ -19,7 +18,6 @@ namespace Analogy.LogViewer.NLogProvider
         private string FileName => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Analogy Log Viewer", NLogFile);
 
         public LogParserSettings LogParserSettings { get; set; }
-
 
         public UserSettingsManager()
         {
@@ -43,10 +41,8 @@ namespace Analogy.LogViewer.NLogProvider
             {
                 LogParserSettings = new LogParserSettings();
                 LogParserSettings.Splitter = "|";
-                LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog","*.log" };
-
+                LogParserSettings.SupportedFilesExtensions = new List<string> { "*.Nlog", "*.log" };
             }
-
         }
 
         public void Save()
