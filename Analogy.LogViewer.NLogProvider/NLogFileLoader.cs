@@ -124,18 +124,18 @@ namespace Analogy.LogViewer.NLogProvider
             return m;
         }
 
-        private DateTime ParseDateTime(string timestamp)
+        private DateTimeOffset ParseDateTime(string timestamp)
         {
-            if (DateTime.TryParse(timestamp, out var time))
+            if (DateTimeOffset.TryParse(timestamp, out var time))
             {
                 return time;
             }
 
-            if (DateTime.TryParseExact(timestamp, logFileSettings.DateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out var formatted))
+            if (DateTimeOffset.TryParseExact(timestamp, logFileSettings.DateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out var formatted))
             {
                 return formatted;
             }
-            return DateTime.Now;
+            return DateTimeOffset.Now;
         }
     }
 
