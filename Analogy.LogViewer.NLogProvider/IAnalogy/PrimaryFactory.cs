@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Analogy.LogViewer.NLogProvider
 {
-    public class PrimaryFactory : Template.PrimaryFactory
+    public class PrimaryFactory : Template.PrimaryFactoryWinForms
     {
         public static Guid Id { get; } = new Guid("33CBFA00-DA3E-4F9F-B5A1-BE978FD09D57");
 

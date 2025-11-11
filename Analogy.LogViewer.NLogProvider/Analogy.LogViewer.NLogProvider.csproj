@@ -2,11 +2,11 @@
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 		<TargetFrameworks>net9.0-windows;net8.0-windows;net48</TargetFrameworks>
-		<VersionPrefix>8.1.0</VersionPrefix>
-		<VersionSuffix></VersionSuffix>
+		<VersionPrefix>9.0.0</VersionPrefix>
+		<VersionSuffix>rc1</VersionSuffix>
 		<AssemblyName>Analogy.LogViewer.NLogProvider</AssemblyName>
 		<RootNamespace>Analogy.LogViewer.NLogProvider</RootNamespace>
-		<Copyright>Lior Banai 2020-2025</Copyright>
+		<Copyright>Lior Banai 2020-2026</Copyright>
 		<PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLog</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.NLog</RepositoryUrl>
 		<PackageIcon>icon.png</PackageIcon>
@@ -29,10 +29,11 @@
 
 	<ItemGroup>
 		<PackageReference Include="CsvHelper" Version="33.0.1" />
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="8.1.0" />
-		<PackageReference Include="Analogy.LogViewer.Template" Version="8.1.0" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="System.Resources.Extensions" Version="9.0.4" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="9.0.0-rc2" />
+		<PackageReference Include="Analogy.CommonUtilities" Version="9.0.0-rc2" />
+		<PackageReference Include="Analogy.LogViewer.Template" Version="9.0.0-rc4" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		<PackageReference Include="System.Resources.Extensions" Version="9.0.10" />
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Update="ColumnsMatcherUC.cs" />
