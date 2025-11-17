@@ -1,5 +1,6 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.DataTypes;
+using Analogy.LogViewer.Template.WinForms;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Analogy.LogViewer.NLogProvider
 {
-    public class NLogDataProvider : Template.OfflineDataProviderWinForms
+    public class NLogDataProvider : OfflineDataProviderWinForms
     {
         public override string OptionalTitle { get; set; } = "Analogy Built-In NLog Parser";
         public override Guid Id { get; set; } = new Guid("4C002803-607F-4385-9C19-949FF1F29877");

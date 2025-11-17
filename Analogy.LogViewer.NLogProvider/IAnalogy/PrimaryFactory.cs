@@ -1,6 +1,7 @@
 ﻿using Analogy.Interfaces;
 using Analogy.Interfaces.Factories;
 using Analogy.LogViewer.NLogProvider.Properties;
+using Analogy.LogViewer.Template.WinForms;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Analogy.LogViewer.NLogProvider
 {
-    public class PrimaryFactory : Template.PrimaryFactoryWinForms
+    public class PrimaryFactory : PrimaryFactoryWinForms
     {
         public static Guid Id { get; } = new Guid("33CBFA00-DA3E-4F9F-B5A1-BE978FD09D57");
 
@@ -37,7 +38,7 @@ namespace Analogy.LogViewer.NLogProvider
         public IEnumerable<IAnalogyCustomAction> Actions { get; } = new List<IAnalogyCustomAction>(0);
     }
 
-    public class AnalogyNLogSettings : Template.TemplateUserSettingsFactory
+    public class AnalogyNLogSettings : TemplateUserSettingsFactoryWinForms
     {
         public override  Guid Id { get; set; } = new Guid("8D24EC70-60C0-4823-BE9C-F4A59303FFB3");
         public override Guid FactoryId { get; set; } = PrimaryFactory.Id;
