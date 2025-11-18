@@ -14,7 +14,7 @@ namespace Analogy.LogViewer.NLogProvider.IAnalogy
         protected override string RepositoryURL { get; set; } = "https://api.github.com/repos/Analogy-LogViewer/Analogy.LogViewer.NLog";
         public override TargetFrameworkAttribute CurrentFrameworkAttribute { get; set; } = (TargetFrameworkAttribute)Assembly.GetExecutingAssembly().GetCustomAttribute(typeof(TargetFrameworkAttribute));
 
-        public override Guid FactoryId { get; set; } = PrimaryFactory.Id;
+        public override Guid FactoryId { get; set; } = NLogPrimaryFactory.Id;
         public override string Name { get; set; } = "NLog Data Provider";
 
         private string? _installedVersionNumber;
